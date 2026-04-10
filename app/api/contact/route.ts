@@ -4,8 +4,11 @@ import { Resend } from "resend";
 // Initialise Resend avec la clé depuis les variables d'environnement
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Adresse qui recevra les candidatures
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "contact@sahanest.fr";
+// Adresses qui recevront les candidatures (séparées par une virgule dans la variable d'env)
+const TO_EMAILS = (process.env.CONTACT_TO_EMAIL ?? "contact@sahanest.fr")
+  .split(",")
+  .map((e) => e.trim())
+  .filter(Boolean);
 // Adresse expéditrice (doit être vérifiée dans Resend)
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "Cockpit <noreply@sahanest.fr>";
 
@@ -23,7 +26,7 @@ export async function POST(req: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
-      to: TO_EMAIL,
+      to: TO_EMAILS,
       replyTo: email,
       subject: `[Cockpit] Nouvelle candidature pilote — ${structure}`,
       html: `

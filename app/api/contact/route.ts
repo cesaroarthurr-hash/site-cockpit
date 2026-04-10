@@ -9,8 +9,8 @@ const TO_EMAILS = (process.env.CONTACT_TO_EMAIL ?? "contact@sahanest.fr")
   .split(",")
   .map((e) => e.trim())
   .filter(Boolean);
-// Adresse expéditrice (doit être vérifiée dans Resend)
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "Cockpit <noreply@sahanest.fr>";
+// Adresse expéditrice — la variable ne contient que l'adresse, le nom est ajouté ici
+const FROM_EMAIL = `Cockpit <${process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev"}>`;
 
 export async function POST(req: NextRequest) {
   try {

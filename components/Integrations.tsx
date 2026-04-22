@@ -63,7 +63,7 @@ export default function Integrations() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="flex flex-wrap items-center justify-center gap-6 mt-14"
+          className="grid grid-cols-6 gap-4 mt-14"
         >
           {integrations.map((integration, i) => (
             <motion.div
@@ -72,7 +72,7 @@ export default function Integrations() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.07 * i }}
-              className="flex flex-col items-center gap-3 px-6 py-5 rounded-2xl border border-white/10 bg-white/90 backdrop-blur-sm hover:bg-white hover:border-[#8DC63F]/40 hover:shadow-lg hover:shadow-[#8DC63F]/10 transition-all duration-200 group w-36"
+              className="flex flex-col items-center gap-3 px-4 py-5 rounded-2xl border border-white/10 bg-white/90 backdrop-blur-sm hover:bg-white hover:border-[#8DC63F]/40 hover:shadow-lg hover:shadow-[#8DC63F]/10 transition-all duration-200 group"
             >
               <div className="relative w-24 h-14 group-hover:scale-105 transition-transform duration-200">
                 <Image

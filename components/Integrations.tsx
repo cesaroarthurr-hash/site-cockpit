@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import React from "react";
 
-const integrations = [
+type Integration = { name: string; logo: string; icon?: never } | { name: string; icon: React.ReactNode; logo?: never };
+
+const integrations: Integration[] = [
   {
     name: "Ximi",
     logo: "/logos/ximi.png",
@@ -128,7 +131,7 @@ export default function Integrations() {
             Intégrations
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 max-w-2xl mx-auto leading-tight">
-            Cockpit s'intègre avec{" "}
+            Cockpit s&apos;intègre avec{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #8DC63F 0%, #b5e06a 100%)",
@@ -163,7 +166,7 @@ export default function Integrations() {
               className="flex flex-col items-center gap-2.5 px-5 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-[#8DC63F]/40 transition-all duration-200 group w-24"
             >
               <div className="group-hover:scale-110 transition-transform duration-200">
-                {"logo" in integration ? (
+                {integration.logo ? (
                   <div className="relative w-10 h-10">
                     <Image
                       src={integration.logo}
@@ -192,7 +195,7 @@ export default function Integrations() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-10 text-xs text-gray-500"
         >
-          Et bien d'autres via notre{" "}
+          Et bien d&apos;autres via notre{" "}
           <span className="text-[#8DC63F] font-medium">API ouverte</span>
           {" "}— contactez-nous pour toute intégration spécifique.
         </motion.p>

@@ -4,15 +4,17 @@ export default function Confidentialite() {
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-100">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Link href="/" className="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-gray-600 transition-colors mb-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+          <Link href="/" className="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-gray-600 transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Retour au site
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Politique de confidentialité</h1>
-          <p className="text-sm text-gray-400">Dernière mise à jour : avril 2026</p>
+          <div className="mt-10">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Politique de confidentialité</h1>
+            <p className="text-sm text-gray-400">Dernière mise à jour : avril 2026</p>
+          </div>
         </div>
       </div>
 

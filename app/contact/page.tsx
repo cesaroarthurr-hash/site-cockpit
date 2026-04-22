@@ -44,18 +44,20 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-100">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Link href="/" className="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-gray-600 transition-colors mb-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+          <Link href="/" className="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-gray-600 transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Retour au site
           </Link>
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-[#8DC63F]/10 text-[#5a8a1f] border border-[#8DC63F]/20 mb-4">
-            Contact
-          </span>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Parlons de votre structure</h1>
-          <p className="text-gray-500">Démo gratuite · Réponse sous 24h · Sans engagement</p>
+          <div className="mt-10">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#8DC63F]/10 text-[#5a8a1f] border border-[#8DC63F]/20 mb-4">
+              Contact
+            </span>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Parlons de votre structure</h1>
+            <p className="text-gray-500">Démo gratuite · Réponse sous 24h · Sans engagement</p>
+          </div>
         </div>
       </div>
 

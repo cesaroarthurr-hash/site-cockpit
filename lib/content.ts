@@ -364,12 +364,12 @@ export const trustedBy = {
   headline: "Ils font confiance à Cockpit.",
   subheadline: "",
   logos: [
-    { name: "Structure A", placeholder: true },
-    { name: "Structure B", placeholder: true },
-    { name: "Structure C", placeholder: true },
-    { name: "Structure D", placeholder: true },
-    { name: "Structure E", placeholder: true },
-    { name: "Structure F", placeholder: true },
+    { name: "Le Temps de Vivre", src: "/logos/le-temps-de-vivre.png" },
+    { name: "Présence", src: "/logos/presence.png" },
+    { name: "ADHAP Direct", src: "/logos/adhap.png" },
+    { name: "Junior Senior", src: "/logos/junior-senior.png" },
+    { name: "Ensemble Autrement", src: "/logos/ensemble-autrement.png" },
+    { name: "Générale des Services", src: "/logos/generale-des-services.png" },
   ],
   note: "",
 };

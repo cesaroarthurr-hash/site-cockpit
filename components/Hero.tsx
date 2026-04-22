@@ -96,6 +96,14 @@ export default function Hero() {
             </a>
           </motion.div>
 
+          {/* Solution française souveraine */}
+          <motion.div variants={itemVariants} className="flex items-center gap-2">
+            <div className="relative w-6 h-6 shrink-0">
+              <Image src="/logos/coq.png" alt="Solution française souveraine" fill className="object-contain" sizes="24px" />
+            </div>
+            <span className="text-xs font-medium text-gray-500">Solution française souveraine</span>
+          </motion.div>
+
           {/* Stats — 3 cards distinctes */}
           <motion.div
             variants={itemVariants}
@@ -114,28 +122,6 @@ export default function Hero() {
                 <span className="text-xs text-gray-500 leading-snug text-center sm:text-left">
                   {stat.label}
                 </span>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Badges certifications avec vrais logos */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center justify-center gap-3 flex-wrap"
-          >
-            {[
-              { src: "/logos/logo-hds.png", label: "Certifié HDS", sub: "Hébergeur de Données de Santé" },
-              { src: "/logos/logo-rgpd.png", label: "Conforme RGPD", sub: "Données hébergées en France" },
-              { src: "/logos/logo-segur.png", label: "Ségur du Numérique", sub: "Référencement en cours" },
-            ].map((badge, i) => (
-              <div key={i} className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm">
-                <div className="relative w-7 h-7 shrink-0">
-                  <Image src={badge.src} alt={badge.label} fill className="object-contain" sizes="28px" />
-                </div>
-                <div>
-                  <span className="text-xs font-semibold text-gray-700 block leading-tight">{badge.label}</span>
-                  <span className="text-[10px] text-gray-400 leading-tight">{badge.sub}</span>
-                </div>
               </div>
             ))}
           </motion.div>
@@ -225,10 +211,6 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            <p className="text-xs text-gray-400 mt-3 text-center">
-              Aperçu du tableau de bord manager — remplacez par votre vrai screenshot dans{" "}
-              <code className="text-[#8DC63F]">public/screenshots/</code>
-            </p>
           </motion.div>
         </motion.div>
       </div>

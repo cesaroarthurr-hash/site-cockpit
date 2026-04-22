@@ -29,9 +29,9 @@ export default function TrustedBy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
-              className="flex items-center justify-center p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-gray-200 hover:bg-white hover:shadow-sm transition-all duration-200 min-h-[72px]"
+              className="flex items-center justify-center p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-gray-200 hover:bg-white hover:shadow-sm transition-all duration-200 min-h-[96px]"
             >
-              <div className="relative w-full h-10">
+              <div className="relative w-full h-16">
                 <Image
                   src={logo.src}
                   alt={logo.name}
@@ -56,56 +56,27 @@ export default function TrustedBy() {
             <p className="text-xs text-gray-400 uppercase tracking-widest shrink-0">Certifications</p>
             <div className="h-px bg-gray-100 flex-1 hidden sm:block" />
 
-            {/* HDS */}
-            <div className="flex flex-col items-center gap-2 px-5 py-4 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-sm transition-all duration-200">
-              <div className="relative w-16 h-16">
-                <Image
-                  src="/logos/logo-hds.png"
-                  alt="Certifié HDS"
-                  fill
-                  className="object-contain"
-                  sizes="64px"
-                />
+            {[
+              { src: "/logos/logo-hds.png", alt: "Certifié HDS", label: "Certifié HDS", sub: "Hébergeur de Données de Santé" },
+              { src: "/logos/logo-rgpd.png", alt: "Conforme RGPD", label: "Conforme RGPD", sub: "Données hébergées en France" },
+              { src: "/logos/logo-segur.png", alt: "Ségur du Numérique", label: "Ségur du Numérique", sub: "Référencement en cours" },
+            ].map((cert, i) => (
+              <div key={i} className="flex flex-col items-center justify-between gap-3 w-44 px-4 py-5 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-sm transition-all duration-200">
+                <div className="relative w-20 h-20 shrink-0">
+                  <Image
+                    src={cert.src}
+                    alt={cert.alt}
+                    fill
+                    className="object-contain"
+                    sizes="80px"
+                  />
+                </div>
+                <div className="text-center">
+                  <p className="text-xs font-semibold text-gray-700 leading-tight">{cert.label}</p>
+                  <p className="text-[10px] text-gray-400 leading-tight mt-0.5">{cert.sub}</p>
+                </div>
               </div>
-              <div className="text-center">
-                <p className="text-xs font-semibold text-gray-700 leading-tight">Certifié HDS</p>
-                <p className="text-[10px] text-gray-400 leading-tight">Hébergeur de Données de Santé</p>
-              </div>
-            </div>
-
-            {/* RGPD */}
-            <div className="flex flex-col items-center gap-2 px-5 py-4 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-sm transition-all duration-200">
-              <div className="relative w-16 h-16">
-                <Image
-                  src="/logos/logo-rgpd.png"
-                  alt="Conforme RGPD"
-                  fill
-                  className="object-contain"
-                  sizes="64px"
-                />
-              </div>
-              <div className="text-center">
-                <p className="text-xs font-semibold text-gray-700 leading-tight">Conforme RGPD</p>
-                <p className="text-[10px] text-gray-400 leading-tight">Données hébergées en France</p>
-              </div>
-            </div>
-
-            {/* Ségur */}
-            <div className="flex flex-col items-center gap-2 px-5 py-4 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-sm transition-all duration-200">
-              <div className="relative w-16 h-16">
-                <Image
-                  src="/logos/logo-segur.png"
-                  alt="Ségur du Numérique"
-                  fill
-                  className="object-contain"
-                  sizes="64px"
-                />
-              </div>
-              <div className="text-center">
-                <p className="text-xs font-semibold text-gray-700 leading-tight">Ségur du Numérique</p>
-                <p className="text-[10px] text-gray-400 leading-tight">Référencement en cours</p>
-              </div>
-            </div>
+            ))}
 
           </motion.div>
         </div>

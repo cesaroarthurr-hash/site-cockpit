@@ -26,23 +26,6 @@ export default function Footer() {
             </div>
             <p className="text-xs text-gray-500">{footer.tagline}</p>
 
-            {/* Certification badges */}
-            <div className="flex items-center gap-2 mt-1 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#8DC63F]/15 border border-[#8DC63F]/25 text-[10px] font-semibold text-[#8DC63F]">
-                <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                </svg>
-                Certifié HDS
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-semibold text-blue-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                Ségur — en cours
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-[10px] font-semibold text-purple-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-                Pro Santé Connect — bientôt
-              </span>
-            </div>
           </div>
 
           {/* Links */}

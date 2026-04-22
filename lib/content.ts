@@ -27,11 +27,11 @@ export const nav = {
 
 // ─── HERO ────────────────────────────────────────────────────
 export const hero = {
-  badge: "Plateforme tout-en-un pour les structures SAP",
-  headline: "Pilotez votre structure d'aide à domicile",
-  highlight: "en temps réel.",
+  badge: "Le cahier de liaison digital de l'aide à domicile",
+  headline: "Finis les cahiers papier.",
+  highlight: "Place au pilotage digital.",
   subheadline:
-    "Cockpit est la plateforme de pilotage conçue pour les SAAD, SSIAD et associations d'aide à domicile. Du compte rendu vocal à la gestion du planning, tout est centralisé pour les managers, les auxiliaires de vie et les familles.",
+    "Cockpit remplace votre cahier de liaison papier : vos auxiliaires transmettent chaque compte rendu en 60 secondes à l'oral, et vos managers ont enfin une visibilité complète sur l'activité de leurs équipes — en temps réel.",
   cta: {
     primary: "Demander une démo",
     secondary: "Découvrir les fonctionnalités",
@@ -45,52 +45,34 @@ export const hero = {
 
 // ─── PROBLEM / SOLUTION ──────────────────────────────────────
 export const problem = {
-  headline: "Diriger une structure SAP sans les bons outils,",
+  headline: "Diriger une structure SAD sans les bons outils,",
   headlineHighlight: "c'est naviguer à vue.",
   subheadline:
-    "Les responsables de structures d'aide à domicile gèrent chaque jour une complexité que les outils génériques ne savent pas adresser.",
+    "Les responsables de structures d'aide à domicile perdent chaque jour un temps précieux sur des tâches que le numérique peut résoudre.",
   pains: [
     {
       icon: "📋",
       title: "Comptes rendus papier ou WhatsApp",
       description:
-        "Informations perdues, illisibles ou non transmises. Aucune traçabilité, aucune conformité réelle.",
+        "Informations perdues, illisibles ou non transmises. Aucune traçabilité, aucune conformité réelle. Et des auxiliaires qui passent plus de temps à écrire qu'à soigner.",
     },
     {
       icon: "🕐",
       title: "Pilotage à l'aveugle",
       description:
-        "Impossible de savoir si une auxiliaire est bien arrivée chez un bénéficiaire, ni comment s'est passée l'intervention.",
-    },
-    {
-      icon: "🗓️",
-      title: "Plannings ingérables",
-      description:
-        "Les absences de dernière minute créent des crises. Les remplacements se gèrent à la main, par téléphone, dans la précipitation.",
-    },
-    {
-      icon: "👥",
-      title: "Turn-over élevé des auxiliaires",
-      description:
-        "Des conditions de travail difficiles, un manque de considération et de communication : le secteur perd ses talents chaque année.",
-    },
-    {
-      icon: "💊",
-      title: "Coordination médicale fragmentée",
-      description:
-        "Médecins, infirmiers et auxiliaires ne partagent pas les mêmes informations. La continuité des soins en pâtit.",
+        "Impossible de savoir en temps réel si une intervention s'est bien passée, si un bénéficiaire va bien, ou si une auxiliaire a besoin d'aide. Le manager subit au lieu de piloter.",
     },
     {
       icon: "👨‍👩‍👧",
       title: "Familles tenues à l'écart",
       description:
-        "Les proches des bénéficiaires n'ont aucune visibilité sur les interventions. L'anxiété et la méfiance s'installent.",
+        "Les proches des bénéficiaires n'ont aucune visibilité sur les interventions. L'anxiété s'installe, les appels se multiplient, la confiance s'érode.",
     },
   ],
   solution: {
-    headline: "Un cockpit complet pour chaque rôle.",
+    headline: "Un cahier de liaison digital pour toute votre structure.",
     description:
-      "Cockpit unifie tous les acteurs de votre structure dans une plateforme commune : managers, auxiliaires de vie, familles, et bientôt professionnels de santé. Chacun dispose des informations dont il a besoin, au bon moment.",
+      "Cockpit centralise la transmission d'information entre vos auxiliaires, vos managers et les familles. Chaque compte rendu est transmis en temps réel, chaque intervention tracée, chaque alerte remontée — sans papier, sans friction.",
   },
 };
 
@@ -178,15 +160,17 @@ export const features = [
 
 // ─── INTERFACES / PROFILS UTILISATEURS ───────────────────────
 export const interfaces = {
-  headline: "Une plateforme, quatre espaces dédiés.",
+  headline: "Un outil, quatre espaces dédiés.",
   subheadline:
-    "Chaque acteur de votre structure dispose d'une interface adaptée à son rôle, ses besoins et son niveau d'information.",
+    "Du terrain au bureau, chaque acteur dispose des informations dont il a besoin — sans surcharge, sans doublon.",
   profiles: [
     {
       role: "Manager / Directeur",
       icon: "🏢",
       color: "#8DC63F",
       lightColor: "#8DC63F15",
+      // Ajoutez ici l'URL de votre vidéo YouTube ou Vimeo (ex: "https://www.youtube.com/embed/XXXXX")
+      videoUrl: "",
       headline: "Le cockpit de pilotage complet",
       description:
         "Visibility totale sur l'activité, les équipes et les bénéficiaires. Gérez le planning, traitez les alertes et prenez des décisions éclairées grâce à des indicateurs consolidés en temps réel.",
@@ -204,6 +188,7 @@ export const interfaces = {
       icon: "👩‍⚕️",
       color: "#3B82F6",
       lightColor: "#3B82F615",
+      videoUrl: "",
       headline: "Simple, rapide, pensé pour le terrain",
       description:
         "L'application mobile que les auxiliaires adorent parce qu'elle leur fait gagner du temps. Planning clair, compte rendu vocal en 60 secondes, communication directe avec le manager.",
@@ -221,6 +206,7 @@ export const interfaces = {
       icon: "👨‍👩‍👧",
       color: "#F59E0B",
       lightColor: "#F59E0B15",
+      videoUrl: "",
       headline: "La tranquillité d'esprit pour les proches",
       description:
         "Les familles accèdent à un espace dédié pour suivre les interventions, lire les comptes rendus et échanger avec la structure. Transparence totale, zéro appel téléphonique.",
@@ -239,6 +225,7 @@ export const interfaces = {
       icon: "🩺",
       color: "#8B5CF6",
       lightColor: "#8B5CF615",
+      videoUrl: "",
       headline: "La coordination médicale, enfin fluide",
       description:
         "Partagez les informations médicales pertinentes directement dans Cockpit. La continuité des soins entre le domicile, les auxiliaires et les professionnels de santé devient enfin possible.",
@@ -290,11 +277,11 @@ export const benefits = {
     },
     {
       icon: "🛡️",
-      metric: "HDS",
-      metricLabel: "Certifié",
-      title: "Sécurité & conformité médicale",
+      metric: "100%",
+      metricLabel: "conforme RGPD",
+      title: "Sécurité & conformité",
       description:
-        "Hébergement certifié HDS (Hébergeur de Données de Santé). Référencement Ségur du Numérique et Pro Santé Connect en cours. Vos données et celles de vos bénéficiaires sont protégées au niveau exigé par l'ANS.",
+        "Hébergement certifié HDS, données stockées en France, chiffrement de bout en bout. Cockpit respecte les exigences légales les plus strictes pour la protection des données de santé.",
       color: "#8B5CF6",
     },
   ],
@@ -375,8 +362,7 @@ export const certifications = {
 // ─── TRUSTED BY ──────────────────────────────────────────────
 export const trustedBy = {
   headline: "Ils font confiance à Cockpit.",
-  subheadline:
-    "Des structures de toutes tailles, des associations aux groupes régionaux.",
+  subheadline: "",
   logos: [
     { name: "Structure A", placeholder: true },
     { name: "Structure B", placeholder: true },
@@ -460,10 +446,10 @@ export const testimonials = {
 
 // ─── FINAL CTA ────────────────────────────────────────────────
 export const finalCta = {
-  headline: "Rejoignez la phase pilote.",
+  headline: "Demandez une démo.",
   subheadline:
-    "Nous ouvrons Cockpit à un nombre limité de structures. Candidatez maintenant et notre équipe vous recontacte sous 48h pour organiser une démo personnalisée.",
-  formTitle: "Demander l'accès prioritaire",
+    "Découvrez Cockpit en 30 minutes avec notre équipe. Démo personnalisée, sans engagement, sur votre cas d'usage réel.",
+  formTitle: "Réserver ma démo",
   fields: {
     name: { label: "Votre nom", placeholder: "Marie Dupont" },
     structure: {
@@ -473,15 +459,15 @@ export const finalCta = {
     email: { label: "Email professionnel", placeholder: "marie@structure.fr" },
     phone: { label: "Téléphone", placeholder: "06 12 34 56 78" },
   },
-  submitLabel: "Envoyer ma candidature",
+  submitLabel: "Réserver ma démo gratuite",
   successMessage:
-    "Merci ! Notre équipe reviendra vers vous sous 48h pour organiser votre démo personnalisée.",
+    "Merci ! Notre équipe vous recontacte sous 24h pour organiser votre démo.",
   trustItems: [
-    "Onboarding accompagné par notre équipe",
-    "Formation incluse pour managers et auxiliaires",
-    "Support réactif en français",
+    "Démo 30 min sur votre cas d'usage",
     "Sans engagement, sans carte bancaire",
     "Déploiement en moins d'une semaine",
+    "Formation incluse pour vos équipes",
+    "Support réactif en français",
   ],
 };
 

@@ -60,7 +60,7 @@ export default function FinalCTA() {
           >
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-[#8DC63F]/10 text-[#5a8a1f] border border-[#8DC63F]/20 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8DC63F] animate-pulse" />
-              Phase pilote ouverte — places limitées
+              Démo gratuite — réponse sous 24h
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
               {finalCta.headline}
@@ -83,17 +83,6 @@ export default function FinalCTA() {
               ))}
             </div>
 
-            {/* Upcoming feature teaser */}
-            <div className="p-5 rounded-2xl border border-[#8B5CF6]/20 bg-[#8B5CF6]/5">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-lg">🩺</span>
-                <span className="text-sm font-semibold text-gray-900">Bientôt disponible</span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#8B5CF6]/15 text-[#8B5CF6] font-medium">À venir</span>
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                La messagerie sécurisée entre auxiliaires, managers, médecins et infirmiers arrive très prochainement pour une coordination médicale complète.
-              </p>
-            </div>
           </motion.div>
 
           {/* Right — form */}

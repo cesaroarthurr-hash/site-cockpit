@@ -135,14 +135,38 @@ export default function Interfaces() {
                     ))}
                   </div>
 
-                  {/* App mockup for this profile */}
-                  <div className="mt-8 rounded-2xl border border-gray-100 bg-gray-50 p-6 flex items-center justify-center min-h-[160px]">
-                    <div className="text-center">
-                      <span className="text-4xl">{active.icon}</span>
-                      <p className="text-xs text-gray-400 mt-2">
-                        Ajoutez un screenshot de l&apos;interface {active.role}
-                      </p>
-                    </div>
+                  {/* Vidéo ou placeholder */}
+                  <div className="mt-8 rounded-2xl border border-gray-100 overflow-hidden bg-gray-50">
+                    {active.videoUrl ? (
+                      <div className="relative aspect-video">
+                        <iframe
+                          src={active.videoUrl}
+                          title={`Démo ${active.role}`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="absolute inset-0 w-full h-full"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center gap-3 min-h-[180px] p-6">
+                        <div
+                          className="w-12 h-12 rounded-full flex items-center justify-center"
+                          style={{ backgroundColor: `${active.color}15` }}
+                        >
+                          <svg className="w-6 h-6" style={{ color: active.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-sm font-medium text-gray-500">Vidéo de présentation à venir</p>
+                          <p className="text-xs text-gray-400 mt-0.5">
+                            Ajoutez l&apos;URL dans{" "}
+                            <code className="text-[#8DC63F]">lib/content.ts → videoUrl</code>
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>

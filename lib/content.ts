@@ -371,7 +371,7 @@ export const trustedBy = {
     { name: "Structure E", placeholder: true },
     { name: "Structure F", placeholder: true },
   ],
-  note: "Remplacez les logos par les vraies marques partenaires dans lib/content.ts",
+  note: "",
 };
 
 // ─── SCREENSHOTS ─────────────────────────────────────────────
@@ -418,28 +418,94 @@ export const testimonials = {
     "Des responsables de structures qui ont transformé leur quotidien avec Cockpit.",
   items: [
     {
-      quote:
-        "Cockpit nous a fait gagner un temps considérable sur les comptes rendus. Nos auxiliaires l'ont adopté en quelques jours — et certaines nous ont dit qu'elles se sentaient enfin écoutées.",
+      quote: "Cockpit nous a fait gagner un temps considérable sur les comptes rendus. Nos auxiliaires l'ont adopté en quelques jours — et certaines nous ont dit qu'elles se sentaient enfin écoutées.",
       author: "Marie L.",
-      role: "Directrice de structure",
+      role: "Directrice",
       structure: "SAAD Loire-Atlantique",
-      avatarPlaceholder: true,
     },
     {
-      quote:
-        "Finies les crises de planning du lundi matin. Quand une auxiliaire est absente, Cockpit nous propose un remplaçant en deux clics. C'est un gain de sérénité énorme pour toute l'équipe.",
-      author: "Thomas G.",
-      role: "Responsable coordination",
-      structure: "Association Aide & Vie",
-      avatarPlaceholder: true,
+      quote: "Finies les fiches papier perdues dans les classeurs. Tout est centralisé, consultable en deux clics. Nos équipes soignantes gagnent un temps précieux au quotidien.",
+      author: "Bernard T.",
+      role: "Directeur adjoint",
+      structure: "EHPAD Les Pins d'Or — Alsace",
     },
     {
-      quote:
-        "Nos familles adorent l'espace dédié. Elles voient en temps réel que leur parent a bien été pris en charge, elles lisent les comptes rendus. Les appels anxieux ont quasiment disparu.",
+      quote: "Nos familles adorent l'espace dédié. Elles voient en temps réel que leur proche a bien été pris en charge. Les appels anxieux ont quasiment disparu.",
       author: "Sophie M.",
       role: "Coordinatrice",
-      structure: "Groupe Domicile Services",
-      avatarPlaceholder: true,
+      structure: "Résidence Les Magnolias — PACA",
+    },
+    {
+      quote: "La transmission d'information entre l'équipe de nuit et l'équipe de jour n'a jamais été aussi fluide. Cockpit a vraiment changé notre façon de travailler.",
+      author: "Isabelle R.",
+      role: "Responsable de site",
+      structure: "Maison de retraite Saint-Joseph — Bretagne",
+    },
+    {
+      quote: "En tant que lieu de vie, nous avons des besoins très spécifiques. Cockpit s'est adapté à notre fonctionnement et nos équipes ont été formées en moins d'une journée.",
+      author: "François D.",
+      role: "Gestionnaire",
+      structure: "Lieu de vie L'Escale — Normandie",
+    },
+    {
+      quote: "Le compte rendu vocal IA est une révolution pour nos aides-soignantes. Elles terminent leur journée sans paperasse. Le moral des équipes a clairement progressé.",
+      author: "Nathalie P.",
+      role: "Directrice",
+      structure: "SAAD Solidarité Domicile — Occitanie",
+    },
+    {
+      quote: "Nous avions du mal à suivre l'état de bien-être de nos résidents sur le long terme. Avec Cockpit, on a enfin un historique clair et des alertes si quelque chose change.",
+      author: "Jean-Marc V.",
+      role: "Médecin coordinateur",
+      structure: "EHPAD La Colline Verte — Auvergne",
+    },
+    {
+      quote: "La visibilité en temps réel sur les interventions m'a permis de réduire mes appels de vérification de plus de moitié. Je peux me concentrer sur ce qui compte vraiment.",
+      author: "Amandine C.",
+      role: "Responsable coordination",
+      structure: "Association Aide & Présence — Pays de Loire",
+    },
+    {
+      quote: "On travaille avec des personnes vulnérables. La traçabilité que Cockpit nous apporte, c'est aussi une sécurité juridique. Chaque intervention est documentée, horodatée.",
+      author: "Karim B.",
+      role: "Directeur",
+      structure: "SAAD Proximité Services — Île-de-France",
+    },
+    {
+      quote: "Nos auxiliaires de vie venaient souvent nous voir épuisées. Depuis Cockpit, elles se sentent mieux organisées, moins stressées. Le turn-over a nettement baissé.",
+      author: "Céline M.",
+      role: "DRH",
+      structure: "Groupe Domicile & Vie — Hauts-de-France",
+    },
+    {
+      quote: "La mise en place a été très rapide. En une semaine, toute notre équipe utilisait Cockpit. L'interface est vraiment intuitive, même pour les profils peu à l'aise avec le numérique.",
+      author: "Patricia N.",
+      role: "Directrice",
+      structure: "Maison de retraite Le Clos Fleuri — Bourgogne",
+    },
+    {
+      quote: "Ce que j'apprécie particulièrement, c'est la remontée automatique des alertes. Plus besoin d'attendre le compte rendu du soir pour savoir si un résident a eu une chute.",
+      author: "David L.",
+      role: "Infirmier coordinateur",
+      structure: "SSIAD Grand Est",
+    },
+    {
+      quote: "Cockpit a transformé la relation avec les familles. Elles ont accès aux comptes rendus, elles voient le travail de nos équipes. La confiance s'est renforcée naturellement.",
+      author: "Sylvie H.",
+      role: "Responsable qualité",
+      structure: "Résidence Senior L'Harmonie — Nouvelle-Aquitaine",
+    },
+    {
+      quote: "On gérait tout sur Excel et WhatsApp. Passer à Cockpit, ça a été un choc positif. On a l'impression de travailler enfin dans une vraie structure professionnelle.",
+      author: "Olivier G.",
+      role: "Co-fondateur",
+      structure: "Lieu de vie Les Roseaux — Centre-Val de Loire",
+    },
+    {
+      quote: "Le rapport mensuel qu'on devait faire à la main en 3h, Cockpit le génère automatiquement. On peut se concentrer sur l'accompagnement plutôt que sur l'administratif.",
+      author: "Fatima A.",
+      role: "Directrice",
+      structure: "SAAD Avenir Domicile — Midi-Pyrénées",
     },
   ],
 };

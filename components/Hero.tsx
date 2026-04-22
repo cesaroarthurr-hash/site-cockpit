@@ -95,15 +95,24 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stats — 3 cards distinctes */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center gap-8 mt-8 pt-8 border-t border-gray-100 w-full justify-center"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 w-full max-w-3xl"
           >
             {hero.stats.map((stat, i) => (
-              <div key={i} className="flex flex-col items-center gap-1">
-                <span className="text-2xl sm:text-3xl font-bold text-gray-900">{stat.value}</span>
-                <span className="text-sm text-gray-400 text-center max-w-[140px]">{stat.label}</span>
+              <div
+                key={i}
+                className="relative flex flex-col items-center sm:items-start gap-1.5 px-6 py-5 rounded-2xl bg-white border border-gray-100 shadow-sm overflow-hidden"
+              >
+                {/* Green left accent */}
+                <div className="absolute left-0 top-4 bottom-4 w-1 rounded-r-full bg-[#8DC63F]" />
+                <span className="text-3xl sm:text-4xl font-bold text-[#8DC63F] leading-none">
+                  {stat.value}
+                </span>
+                <span className="text-xs text-gray-500 leading-snug text-center sm:text-left">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </motion.div>

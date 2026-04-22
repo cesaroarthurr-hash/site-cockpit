@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
 import { hero } from "@/lib/content";
 
 const containerVariants = {
@@ -17,6 +19,13 @@ const itemVariants = {
 };
 
 export default function Hero() {
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi({ namespace: "30min" });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Grid background */}
@@ -79,15 +88,17 @@ export default function Hero() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center gap-3 mt-2"
           >
-            <a
-              href="#contact"
+            <button
+              data-cal-namespace="30min"
+              data-cal-link="arthur-cesaro-2bgnnx/30min"
+              data-cal-config='{"layout":"month_view"}'
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold bg-[#8DC63F] text-white hover:bg-[#6fa32e] transition-all duration-200 shadow-lg shadow-[#8DC63F]/25 hover:shadow-[#8DC63F]/40 hover:scale-[1.02]"
             >
               {hero.cta.primary}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </button>
             <a
               href="#features"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-medium text-gray-600 hover:text-gray-900 bg-white border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:scale-[1.02]"

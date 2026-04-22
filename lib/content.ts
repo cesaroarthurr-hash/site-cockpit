@@ -541,9 +541,10 @@ export const finalCta = {
 export const footer = {
   tagline: "La gestion de l'aide à domicile, réinventée.",
   links: [
+    { label: "FAQ", href: "/faq" },
     { label: "Mentions légales", href: "/mentions-legales" },
-    { label: "Politique de confidentialité", href: "/confidentialite" },
-    { label: "Contact", href: "mailto:contact@sahanest.fr" },
+    { label: "Confidentialité", href: "/confidentialite" },
+    { label: "Contact", href: "/contact" },
   ],
   copyright: `© ${new Date().getFullYear()} Cockpit. Tous droits réservés.`,
 };

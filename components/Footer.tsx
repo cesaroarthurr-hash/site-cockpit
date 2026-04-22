@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { footer, siteConfig } from "@/lib/content";
 
@@ -29,15 +30,15 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-6 flex-wrap justify-center md:justify-end">
             {footer.links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-xs hover:text-gray-200 transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </motion.div>

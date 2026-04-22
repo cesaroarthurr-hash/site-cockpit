@@ -1,8 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const integrations = [
+  {
+    name: "Ximi",
+    logo: "/logos/ximi.png",
+  },
+  {
+    name: "Arche",
+    logo: "/logos/arche.png",
+  },
   {
     name: "Ogust",
     icon: (
@@ -154,7 +163,19 @@ export default function Integrations() {
               className="flex flex-col items-center gap-2.5 px-5 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-[#8DC63F]/40 transition-all duration-200 group w-24"
             >
               <div className="group-hover:scale-110 transition-transform duration-200">
-                {integration.icon}
+                {"logo" in integration ? (
+                  <div className="relative w-10 h-10">
+                    <Image
+                      src={integration.logo}
+                      alt={integration.name}
+                      fill
+                      className="object-contain brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+                      sizes="40px"
+                    />
+                  </div>
+                ) : (
+                  integration.icon
+                )}
               </div>
               <span className="text-[11px] text-gray-400 group-hover:text-gray-200 transition-colors duration-200 font-medium leading-tight text-center">
                 {integration.name}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { hero } from "@/lib/content";
 
@@ -117,28 +118,26 @@ export default function Hero() {
             ))}
           </motion.div>
 
-          {/* Trust badges HDS + RGPD */}
+          {/* Badges certifications avec vrais logos */}
           <motion.div
             variants={itemVariants}
             className="flex items-center justify-center gap-3 flex-wrap"
           >
-            {/* HDS badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#8DC63F]/30 bg-[#8DC63F]/5">
-              <svg className="w-4 h-4 text-[#8DC63F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              <span className="text-xs font-semibold text-[#5a8a1f]">Certifié HDS</span>
-              <span className="text-[10px] text-gray-400">Hébergeur de Données de Santé</span>
-            </div>
-
-            {/* RGPD badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-blue-200 bg-blue-50/50">
-              <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              <span className="text-xs font-semibold text-blue-600">Conforme RGPD</span>
-              <span className="text-[10px] text-gray-400">Données hébergées en France</span>
-            </div>
+            {[
+              { src: "/logos/logo-hds.png", label: "Certifié HDS", sub: "Hébergeur de Données de Santé" },
+              { src: "/logos/logo-rgpd.png", label: "Conforme RGPD", sub: "Données hébergées en France" },
+              { src: "/logos/logo-segur.png", label: "Ségur du Numérique", sub: "Référencement en cours" },
+            ].map((badge, i) => (
+              <div key={i} className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm">
+                <div className="relative w-7 h-7 shrink-0">
+                  <Image src={badge.src} alt={badge.label} fill className="object-contain" sizes="28px" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-gray-700 block leading-tight">{badge.label}</span>
+                  <span className="text-[10px] text-gray-400 leading-tight">{badge.sub}</span>
+                </div>
+              </div>
+            ))}
           </motion.div>
 
           {/* Dashboard preview */}

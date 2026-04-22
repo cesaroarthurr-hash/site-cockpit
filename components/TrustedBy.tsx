@@ -91,15 +91,19 @@ export default function TrustedBy() {
             </div>
 
             {/* Ségur */}
-            <div className="flex flex-col items-center gap-2 px-5 py-4 rounded-xl border border-amber-200 bg-amber-50 hover:bg-amber-50/80 transition-colors">
-              <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center">
-                <svg className="w-7 h-7 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
+            <div className="flex flex-col items-center gap-2 px-5 py-4 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-sm transition-all duration-200">
+              <div className="relative w-16 h-16">
+                <Image
+                  src="/logos/logo-segur.png"
+                  alt="Ségur du Numérique"
+                  fill
+                  className="object-contain"
+                  sizes="64px"
+                />
               </div>
               <div className="text-center">
-                <p className="text-xs font-semibold text-amber-800 leading-tight">Ségur du Numérique</p>
-                <p className="text-[10px] text-amber-600 leading-tight">Référencement en cours</p>
+                <p className="text-xs font-semibold text-gray-700 leading-tight">Ségur du Numérique</p>
+                <p className="text-[10px] text-gray-400 leading-tight">Référencement en cours</p>
               </div>
             </div>
 

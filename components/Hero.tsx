@@ -98,11 +98,11 @@ export default function Hero() {
 
           {/* Solution française souveraine */}
           <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[#8DC63F]/30 bg-[#8DC63F]/5">
-              <div className="relative w-8 h-8 shrink-0">
-                <Image src="/logos/coq.png" alt="Coq français" fill className="object-contain" sizes="32px" />
+            <div className="inline-flex items-center gap-4 px-5 py-3 rounded-2xl border border-[#8DC63F]/30 bg-[#8DC63F]/5">
+              <div className="relative w-14 h-14 shrink-0">
+                <Image src="/logos/coq.png" alt="Coq français" fill className="object-contain" sizes="56px" />
               </div>
-              <span className="text-sm font-semibold text-gray-700 tracking-wide">Solution française souveraine</span>
+              <span className="text-base font-semibold text-gray-700 tracking-wide">Solution française souveraine</span>
             </div>
           </motion.div>
 

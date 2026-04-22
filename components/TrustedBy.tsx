@@ -29,9 +29,9 @@ export default function TrustedBy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
-              className="flex items-center justify-center p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-gray-200 hover:bg-white hover:shadow-sm transition-all duration-200 min-h-[96px]"
+              className="flex items-center justify-center p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-gray-200 hover:bg-white hover:shadow-sm transition-all duration-200 min-h-[112px]"
             >
-              <div className="relative w-full h-16">
+              <div className="relative w-full h-20">
                 <Image
                   src={logo.src}
                   alt={logo.name}

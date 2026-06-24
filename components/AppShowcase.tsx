@@ -6,6 +6,7 @@ import { apps } from "@/lib/content";
 import { Reveal } from "./ui/Reveal";
 import Icon, { type IconName } from "./ui/Icon";
 import VoiceWaveform from "./ui/VoiceWaveform";
+import PhoneFrame from "./ui/PhoneFrame";
 
 const iconFor: Record<string, IconName> = {
   aux: "mic",
@@ -14,7 +15,6 @@ const iconFor: Record<string, IconName> = {
   pro: "stethoscope",
 };
 
-// Teinte profonde par espace (carte saturée + texte blanc, façon speakli)
 const DEEP: Record<string, string> = {
   aux: "#3f6f10",
   manager: "#1d5fd6",
@@ -29,89 +29,96 @@ const SLIDER: Record<string, string> = {
   pro: "Glisser pour inviter un intervenant",
 };
 
-// Panneau UI translucide (moitié droite de la carte avant)
-function MiniPanel({ id }: { id: string }) {
-  const box = "rounded-xl bg-white/12 backdrop-blur-sm p-3";
+const AUTOPLAY_MS = 10000;
 
-  if (id === "auxiliaire") {
-    return (
-      <div className="space-y-3">
-        <div className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-xs font-bold text-white">M</span>
-          <div className="leading-tight">
-            <p className="text-xs font-semibold text-white">Marianne</p>
-            <p className="text-[10px] text-white/55">CR vocal · 00:42</p>
+// Écran de téléphone clair, propre à chaque espace
+function PhoneScreen({ id, color }: { id: string; color: string }) {
+  return (
+    <div className="flex h-full flex-col px-3 pb-3 pt-7 text-left">
+      <div className="flex items-center justify-between text-[8px] font-medium text-gray-400">
+        <span>10:24</span>
+        <span className="flex items-center gap-1 text-gray-300">●●● 95</span>
+      </div>
+
+      <div className="mt-2 flex items-center gap-1.5 border-b border-gray-100 pb-2">
+        <span className="flex h-4 w-4 items-center justify-center rounded-md" style={{ backgroundColor: color }}>
+          <Icon name={iconFor[id === "auxiliaire" ? "aux" : id === "pros" ? "pro" : id]} className="h-2.5 w-2.5 text-white" />
+        </span>
+        <span className="text-[10px] font-bold text-gray-800">Cockpit</span>
+      </div>
+
+      {id === "auxiliaire" && (
+        <div className="mt-3 flex flex-1 flex-col">
+          <div className="flex items-center gap-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-bold text-white" style={{ backgroundColor: color }}>M</span>
+            <div className="leading-tight">
+              <p className="text-[10px] font-semibold text-gray-800">Marianne</p>
+              <p className="text-[8px] text-gray-400">CR vocal · 00:42</p>
+            </div>
+          </div>
+          <div className="mt-3 rounded-xl bg-gray-50 p-2.5">
+            <p className="flex items-center gap-1 text-[8px] text-gray-500">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" /> Écoute en cours…
+            </p>
+            <VoiceWaveform className="mt-1.5 w-full" color={color} height={22} bars={16} />
+          </div>
+          <div className="mt-2 flex items-center justify-between rounded-lg bg-gray-50 px-2.5 py-1.5">
+            <span className="text-[9px] text-gray-600">Actes réalisés</span>
+            <Icon name="check" className="h-3 w-3" style={{ color }} />
+          </div>
+          <div className="mt-1.5 flex items-center justify-between rounded-lg bg-gray-50 px-2.5 py-1.5">
+            <span className="text-[9px] text-gray-600">État général</span>
+            <span className="text-[9px] font-semibold text-gray-800">Bon</span>
           </div>
         </div>
-        <div className={box}>
-          <p className="flex items-center gap-1.5 text-[10px] text-white/70">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" /> Écoute en cours…
-          </p>
-          <VoiceWaveform className="mt-2 w-full" color="#ffffff" height={26} bars={20} />
-        </div>
-        <div className="flex items-center justify-between rounded-xl bg-white/12 px-3 py-2">
-          <span className="text-[11px] text-white/80">Actes réalisés</span>
-          <Icon name="check" className="h-3.5 w-3.5 text-white" />
-        </div>
-        <div className="flex items-center justify-between rounded-xl bg-white/12 px-3 py-2">
-          <span className="text-[11px] text-white/80">État général</span>
-          <span className="text-[11px] font-semibold text-white">Bon</span>
-        </div>
-      </div>
-    );
-  }
+      )}
 
-  if (id === "manager") {
-    return (
-      <div className="space-y-3">
-        <p className="text-[11px] font-semibold uppercase tracking-wide text-white/60">Tableau de bord</p>
-        <div className="grid grid-cols-2 gap-2">
-          {[{ v: "7", l: "Points d’attention" }, { v: "11", l: "Bénéficiaires" }].map((t) => (
-            <div key={t.l} className={box}>
-              <p className="font-display text-2xl font-extrabold text-white">{t.v}</p>
-              <p className="text-[10px] text-white/55">{t.l}</p>
-            </div>
-          ))}
-        </div>
-        <div className={box}>
-          {[90, 65, 45].map((w, i) => (
-            <div key={i} className="mb-2 last:mb-0">
-              <div className="h-1.5 rounded-full bg-white/15">
-                <div className="h-full rounded-full bg-white/80" style={{ width: `${w}%` }} />
+      {id === "manager" && (
+        <div className="mt-3 space-y-2">
+          <p className="text-[8px] font-semibold uppercase tracking-wide text-gray-400">Tableau de bord</p>
+          <div className="grid grid-cols-2 gap-1.5">
+            {[{ v: "7", l: "Points d’attention" }, { v: "11", l: "Bénéficiaires" }].map((t) => (
+              <div key={t.l} className="rounded-lg bg-gray-50 p-2">
+                <p className="font-display text-base font-extrabold" style={{ color }}>{t.v}</p>
+                <p className="text-[7px] leading-tight text-gray-400">{t.l}</p>
               </div>
+            ))}
+          </div>
+          <div className="space-y-1.5 rounded-lg bg-gray-50 p-2">
+            {[90, 65, 45].map((w, i) => (
+              <div key={i} className="h-1.5 rounded-full bg-gray-200">
+                <div className="h-full rounded-full" style={{ width: `${w}%`, backgroundColor: i === 0 ? color : "#cbd5e1" }} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {id === "famille" && (
+        <div className="mt-3 space-y-2">
+          <p className="text-[9px] font-bold" style={{ color }}>Des nouvelles de Joseline 💚</p>
+          {["Josiane est rayonnante aujourd’hui.", "Nous avons partagé un bon moment."].map((m, i) => (
+            <div key={i} className="rounded-xl rounded-tl-sm bg-gray-100 p-2 text-[9px] leading-snug text-gray-600">{m}</div>
+          ))}
+          <div className="ml-auto w-2/3 rounded-xl rounded-tr-sm p-2 text-[9px] text-white" style={{ backgroundColor: color }}>Merci beaucoup 🙏</div>
+        </div>
+      )}
+
+      {id === "pros" && (
+        <div className="mt-3 space-y-1.5">
+          <p className="text-[8px] font-semibold uppercase tracking-wide text-gray-400">Cercle de soin · Marianne</p>
+          {[
+            { n: "Cabinet IDEL Pasteur", s: "ACTIF" },
+            { n: "Dr. Lemaitre", s: "ACTIF" },
+            { n: "Sophie Vidal — Kiné", s: "ATTENTE" },
+          ].map((p) => (
+            <div key={p.n} className="flex items-center justify-between rounded-lg bg-gray-50 px-2 py-1.5">
+              <span className="text-[9px] font-medium text-gray-700">{p.n}</span>
+              <span className="rounded px-1 py-0.5 text-[7px] font-bold" style={{ backgroundColor: `${color}20`, color }}>{p.s}</span>
             </div>
           ))}
         </div>
-      </div>
-    );
-  }
-
-  if (id === "famille") {
-    return (
-      <div className="space-y-2.5">
-        <p className="text-[11px] font-semibold text-white">Des nouvelles de Joseline 💚</p>
-        {["Josiane est rayonnante aujourd’hui.", "Nous avons partagé un bon moment."].map((m, i) => (
-          <div key={i} className="rounded-2xl rounded-tl-sm bg-white/15 p-2.5 text-[11px] leading-snug text-white/90">{m}</div>
-        ))}
-        <div className="ml-auto w-2/3 rounded-2xl rounded-tr-sm bg-white/25 p-2.5 text-[11px] text-white">Merci beaucoup 🙏</div>
-      </div>
-    );
-  }
-
-  // pros
-  return (
-    <div className="space-y-2.5">
-      <p className="text-[11px] font-semibold uppercase tracking-wide text-white/60">Cercle de soin · Marianne</p>
-      {[
-        { n: "Cabinet IDEL Pasteur", s: "ACTIF" },
-        { n: "Dr. Lemaitre", s: "ACTIF" },
-        { n: "Sophie Vidal — Kiné", s: "EN ATTENTE" },
-      ].map((p) => (
-        <div key={p.n} className="flex items-center justify-between rounded-xl bg-white/12 px-3 py-2">
-          <span className="text-[11px] font-medium text-white/90">{p.n}</span>
-          <span className="rounded px-1.5 py-0.5 text-[8px] font-bold text-white" style={{ backgroundColor: "rgba(255,255,255,0.22)" }}>{p.s}</span>
-        </div>
-      ))}
+      )}
     </div>
   );
 }
@@ -121,6 +128,7 @@ export default function AppShowcase() {
   const app = apps.items[active];
   const deep = DEEP[app.key];
 
+  // navigation par ancre
   useEffect(() => {
     const sync = () => {
       const id = window.location.hash.replace("#", "");
@@ -131,6 +139,12 @@ export default function AppShowcase() {
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
   }, []);
+
+  // auto-défilement toutes les 10 s (réinitialisé à chaque changement)
+  useEffect(() => {
+    const t = setTimeout(() => setActive((a) => (a + 1) % apps.items.length), AUTOPLAY_MS);
+    return () => clearTimeout(t);
+  }, [active]);
 
   return (
     <section id="apps" className="relative overflow-hidden bg-gradient-to-b from-night to-night-900 py-24 text-white">
@@ -153,7 +167,7 @@ export default function AppShowcase() {
         </Reveal>
 
         <div className="mt-16 grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
-          {/* Rubriques épurées (gauche) */}
+          {/* Rubriques épurées */}
           <div className="flex flex-col gap-6">
             {apps.items.map((it, i) => (
               <button
@@ -179,7 +193,7 @@ export default function AppShowcase() {
             ))}
           </div>
 
-          {/* Cartes empilées 3D (droite) */}
+          {/* Cartes empilées 3D */}
           <div className="flex flex-col items-center">
             <div className="relative w-full max-w-xl [perspective:2200px]">
               {/* peeks décoratifs */}
@@ -192,7 +206,7 @@ export default function AppShowcase() {
                     style={{
                       background: `linear-gradient(160deg, ${DEEP[peek.key]}, ${peek.color})`,
                       transform: `translateX(${d * 34}px) translateY(${-d * 20}px) rotateY(-16deg) rotateX(3deg) scale(${1 - d * 0.04})`,
-                      opacity: 0.6 - d * 0.18,
+                      opacity: 0.55 - d * 0.16,
                       zIndex: 10 - d,
                     }}
                   >
@@ -205,7 +219,7 @@ export default function AppShowcase() {
               })}
 
               {/* carte avant */}
-              <div className="relative z-20 [transform-style:preserve-3d] lg:[transform:rotateY(-16deg)_rotateX(3deg)]">
+              <div className="relative z-20 [transform-style:preserve-3d] lg:[transform:rotateY(-15deg)_rotateX(3deg)]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={app.id}
@@ -213,7 +227,7 @@ export default function AppShowcase() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    className="grid overflow-hidden rounded-3xl border border-white/15 shadow-2xl lg:grid-cols-2"
+                    className="grid overflow-hidden rounded-3xl border border-white/15 shadow-2xl lg:grid-cols-[1.05fr_0.95fr]"
                     style={{ backgroundColor: deep }}
                   >
                     {/* moitié gauche — contenu */}
@@ -222,7 +236,7 @@ export default function AppShowcase() {
                         <Icon name={iconFor[app.key]} className="h-5 w-5 text-white" />
                       </span>
                       <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-white/70">{app.eyebrow}</p>
-                      <h3 className="mt-2 font-display text-2xl font-extrabold leading-tight text-white">{app.title}</h3>
+                      <h3 className="mt-2 font-display text-xl font-extrabold leading-tight text-white sm:text-2xl">{app.title}</h3>
                       <p className="mt-3 text-sm leading-relaxed text-white/75">{app.description}</p>
 
                       <ul className="mt-5 space-y-2.5">
@@ -236,22 +250,19 @@ export default function AppShowcase() {
                         ))}
                       </ul>
 
-                      {/* faux-slider */}
                       <div className="mt-6 flex items-center gap-3 rounded-full bg-white/15 p-1.5">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white" style={{ color: deep }}>
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white" style={{ color: deep }}>
                           <Icon name="arrow" className="h-4 w-4" />
                         </span>
                         <span className="text-[13px] text-white/65">{SLIDER[app.key]}</span>
                       </div>
                     </div>
 
-                    {/* moitié droite — mock translucide */}
-                    <div className="p-6 sm:p-7" style={{ backgroundColor: "rgba(255,255,255,0.10)" }}>
-                      <div className="mb-4 flex items-center justify-end gap-2">
-                        <span className="text-[11px] text-white/70">Cockpit</span>
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/25 text-[10px] font-bold text-white">JN</span>
-                      </div>
-                      <MiniPanel id={app.id} />
+                    {/* moitié droite — téléphone */}
+                    <div className="flex items-center justify-center p-6" style={{ backgroundColor: "rgba(0,0,0,0.12)" }}>
+                      <PhoneFrame className="w-[190px]">
+                        <PhoneScreen id={app.id} color={app.color} />
+                      </PhoneFrame>
                     </div>
                   </motion.div>
                 </AnimatePresence>
@@ -277,10 +288,7 @@ export default function AppShowcase() {
                     onClick={() => setActive(i)}
                     aria-label={`Voir ${it.sidebarTitle}`}
                     className="h-2 rounded-full transition-all"
-                    style={{
-                      width: active === i ? 26 : 8,
-                      backgroundColor: active === i ? app.color : "rgba(255,255,255,0.25)",
-                    }}
+                    style={{ width: active === i ? 26 : 8, backgroundColor: active === i ? app.color : "rgba(255,255,255,0.25)" }}
                   />
                 ))}
               </div>

@@ -51,10 +51,11 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="mt-5 text-balance font-display text-4xl font-extrabold leading-[1.05] text-gray-900 sm:text-5xl lg:text-6xl"
+            className="mt-5 text-balance font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl"
           >
-            {hero.headline}{" "}
-            <span className="gradient-text">{hero.highlight}</span>
+            <span className="headline-shimmer">
+              {hero.headline} {hero.highlight}
+            </span>
           </motion.h1>
 
           <motion.p

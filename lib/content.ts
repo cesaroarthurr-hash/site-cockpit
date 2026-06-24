@@ -69,6 +69,7 @@ export const nav = {
         {
           title: "Aller plus loin",
           links: [
+            { label: "Notre histoire", href: "/notre-histoire", desc: "Qui sommes-nous, notre mission" },
             { label: "FAQ", href: "/faq", desc: "Vos questions, nos réponses" },
             { label: "Contact", href: "/contact", desc: "Parler à l'équipe" },
             { label: "Mentions légales", href: "/mentions-legales", desc: "" },
@@ -625,6 +626,7 @@ export const footer = {
     {
       title: "Ressources",
       links: [
+        { label: "Notre histoire", href: "/notre-histoire" },
         { label: "FAQ", href: "/faq" },
         { label: "Contact", href: "/contact" },
         { label: "Mentions légales", href: "/mentions-legales" },

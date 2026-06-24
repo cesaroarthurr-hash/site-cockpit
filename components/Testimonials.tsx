@@ -1,120 +1,93 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { testimonials } from "@/lib/content";
+import { Reveal } from "./ui/Reveal";
+import AnimatedCounter from "./ui/AnimatedCounter";
 
-function TestimonialCard({ item }: { item: (typeof testimonials.items)[0] }) {
+type Item = (typeof testimonials.items)[number];
+
+function Stars() {
   return (
-    <div className="relative flex flex-col shrink-0 w-[320px] sm:w-[360px] p-6 rounded-2xl bg-white border border-gray-100 shadow-sm mx-3">
-      {/* Stars */}
-      <div className="flex gap-0.5 mb-4">
-        {[...Array(5)].map((_, i) => (
-          <svg key={i} className="w-3.5 h-3.5 text-[#8DC63F]" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        ))}
-      </div>
-
-      {/* Quote mark */}
-      <div className="absolute top-4 right-5 text-5xl text-[#8DC63F]/10 font-serif leading-none select-none">&ldquo;</div>
-
-      {/* Quote */}
-      <p className="text-sm text-gray-600 leading-relaxed flex-1 mb-5">
-        &ldquo;{item.quote}&rdquo;
-      </p>
-
-      {/* Author */}
-      <div className="flex items-center gap-3">
-        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#8DC63F] to-[#6fa32e] flex items-center justify-center text-white font-semibold text-xs shrink-0">
-          {item.author.charAt(0)}
-        </div>
-        <div>
-          <p className="font-semibold text-gray-900 text-xs">{item.author}</p>
-          <p className="text-[11px] text-gray-400">{item.role} · {item.structure}</p>
-        </div>
-      </div>
+    <div className="flex gap-0.5 text-amber-400">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+          <path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.2 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.9z" />
+        </svg>
+      ))}
     </div>
   );
 }
 
+function Card({ t }: { t: Item }) {
+  return (
+    <figure className="flex w-[340px] shrink-0 flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+      <Stars />
+      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-gray-700">
+        “{t.quote}”
+      </blockquote>
+      <figcaption className="mt-5 flex items-center gap-3 border-t border-gray-50 pt-4">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#8DC63F] to-[#5a8a1f] font-display text-sm font-bold text-white">
+          {t.author.charAt(0)}
+        </span>
+        <div>
+          <p className="text-sm font-bold text-gray-900">{t.author}</p>
+          <p className="text-xs text-gray-400">{t.role} · {t.structure}</p>
+        </div>
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function Testimonials() {
-  // Triplicate for seamless infinite loop
-  const row1 = [...testimonials.items, ...testimonials.items, ...testimonials.items];
-  const row2 = [...testimonials.items].reverse();
-  const row2Full = [...row2, ...row2, ...row2];
+  const half = Math.ceil(testimonials.items.length / 2);
+  const row1 = testimonials.items.slice(0, half);
+  const row2 = testimonials.items.slice(half);
 
   return (
-    <section id="testimonials" className="py-24 bg-white overflow-hidden">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-[#8DC63F]/10 text-[#5a8a1f] border border-[#8DC63F]/20 mb-4">
-            Témoignages
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+    <section id="temoignages" className="overflow-hidden bg-gradient-to-b from-gray-50/60 to-white py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#8DC63F]">{testimonials.eyebrow}</p>
+          <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
             {testimonials.headline}
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            {testimonials.subheadline}
-          </p>
-        </motion.div>
+          <p className="mt-5 text-lg leading-relaxed text-gray-500">{testimonials.subheadline}</p>
+        </Reveal>
       </div>
 
-      {/* Row 1 — scroll left */}
-      <div className="relative mb-4">
-        {/* Gradient masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-        <div
-          className="flex"
-          style={{
-            animation: "marquee-left 60s linear infinite",
-          }}
-        >
-          {row1.map((item, i) => (
-            <TestimonialCard key={i} item={item} />
+      {/* Rangées défilantes */}
+      <div className="mask-fade-x mt-12 space-y-5">
+        <div className="flex w-max animate-marquee gap-5 pause-on-hover">
+          {[...row1, ...row1].map((t, i) => (
+            <Card key={`r1-${i}`} t={t} />
+          ))}
+        </div>
+        <div className="flex w-max animate-marquee-rev gap-5 pause-on-hover">
+          {[...row2, ...row2].map((t, i) => (
+            <Card key={`r2-${i}`} t={t} />
           ))}
         </div>
       </div>
 
-      {/* Row 2 — scroll right */}
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-        <div
-          className="flex"
-          style={{
-            animation: "marquee-right 70s linear infinite",
-          }}
-        >
-          {row2Full.map((item, i) => (
-            <TestimonialCard key={i} item={item} />
-          ))}
-        </div>
+      {/* Bande de stats */}
+      <div className="mx-auto mt-14 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-night-50 to-night-900 px-6 py-12 shadow-xl">
+            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#8DC63F]/20 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#3B82F6]/15 blur-3xl" />
+            <div className="relative grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              {testimonials.stats.map((s) => (
+                <div key={s.label} className="px-4 py-4 text-center">
+                  <p className="font-display text-4xl font-extrabold text-white sm:text-5xl">
+                    <AnimatedCounter value={s.value} suffix={s.suffix} />
+                  </p>
+                  <p className="mt-1.5 text-sm text-white/55">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
-
-      {/* CSS keyframes */}
-      <style jsx>{`
-        @keyframes marquee-left {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
-        }
-        @keyframes marquee-right {
-          0% { transform: translateX(-33.333%); }
-          100% { transform: translateX(0); }
-        }
-        div:hover {
-          animation-play-state: running;
-        }
-      `}</style>
     </section>
   );
 }

@@ -1,368 +1,113 @@
 // ============================================================
 // CONTENT.TS — Tout le contenu du site en un seul endroit
+// Adapté de la plaquette commerciale Cockpit 2026 + infos produit
 // ============================================================
 
 export const siteConfig = {
   name: "Cockpit",
   brand: "SAHANEST",
   fullName: "Cockpit",
-  tagline: "Le cockpit de pilotage pensé pour l'aide à domicile",
+  tagline: "La plateforme qui coordonne l'aide à domicile",
   description:
-    "Cockpit centralise le pilotage de votre activité SAP : comptes rendus, suivi bénéficiaires, bien-être des équipes, gestion du planning et reporting — en temps réel, sans papier.",
+    "Cockpit remplace le carnet de liaison papier et coordonne auxiliaires, responsables de secteur, familles et intervenants libéraux autour du bénéficiaire — comptes rendus vocaux IA, pilotage temps réel, planning, bien-être. Certifié HDS, conforme RGPD, souverain.",
   url: "https://cockpit.sahanest.fr",
   ogImage: "/og-image.png",
   twitter: "@sahanest",
 };
 
+// ─── NAVIGATION (méga-menu) ──────────────────────────────────
 export const nav = {
-  links: [
-    { label: "Fonctionnalités", href: "#features" },
-    { label: "Interfaces", href: "#interfaces" },
-    { label: "Bénéfices", href: "#benefits" },
-    { label: "Témoignages", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
-  ],
   cta: "Demander une démo",
+  menus: [
+    {
+      label: "Les solutions",
+      columns: [
+        {
+          title: "Par métier",
+          links: [
+            { label: "App Auxiliaire — CR vocal", href: "#auxiliaire", desc: "Compte rendu à la voix en 1 min" },
+            { label: "App Manager — Pilotage", href: "#manager", desc: "Tableau de bord temps réel" },
+            { label: "App Famille", href: "#famille", desc: "Newsfeed & messagerie" },
+            { label: "App Intervenants libéraux", href: "#pros", desc: "Cercle de soin partagé" },
+          ],
+        },
+        {
+          title: "Au-delà du compte rendu",
+          links: [
+            { label: "Planning intelligent", href: "#modules", desc: "Remplacements & conventions" },
+            { label: "Bien-être des équipes", href: "#modules", desc: "Anticiper le turn-over" },
+            { label: "Projets personnalisés", href: "#modules", desc: "PAP & fiches missions" },
+            { label: "Messagerie interne", href: "#modules", desc: "Tracée & sécurisée" },
+          ],
+        },
+      ],
+    },
+    {
+      label: "La plateforme",
+      columns: [
+        {
+          title: "Confiance",
+          links: [
+            { label: "Sécurité & conformité", href: "#confiance", desc: "HDS · RGPD · souverain" },
+            { label: "Intégrations & API", href: "#integrations", desc: "Ximi, Arche, Ogust…" },
+            { label: "Accompagnement", href: "#accompagnement", desc: "Onboarding en < 1 semaine" },
+          ],
+        },
+        {
+          title: "Découvrir",
+          links: [
+            { label: "Les résultats", href: "#resultats", desc: "Chiffres mesurés sur le terrain" },
+            { label: "La solution", href: "#solution", desc: "Comment ça marche" },
+            { label: "Témoignages", href: "#temoignages", desc: "Ils utilisent Cockpit" },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Ressources",
+      columns: [
+        {
+          title: "Aller plus loin",
+          links: [
+            { label: "FAQ", href: "/faq", desc: "Vos questions, nos réponses" },
+            { label: "Contact", href: "/contact", desc: "Parler à l'équipe" },
+            { label: "Mentions légales", href: "/mentions-legales", desc: "" },
+            { label: "Confidentialité", href: "/confidentialite", desc: "" },
+          ],
+        },
+      ],
+    },
+  ],
 };
 
 // ─── HERO ────────────────────────────────────────────────────
 export const hero = {
-  badge: "Le cahier de liaison digital de l'aide à domicile",
-  headline: "Finis les cahiers papier.",
-  highlight: "Place au pilotage digital.",
+  eyebrow: "PLATEFORME DE COORDINATION IA · AIDE À DOMICILE",
+  headline: "L'aide à domicile mérite mieux",
+  highlight: "qu'un carnet papier.",
   subheadline:
-    "Cockpit remplace votre cahier de liaison papier : vos auxiliaires transmettent chaque compte rendu en 60 secondes à l'oral, et vos managers ont enfin une visibilité complète sur l'activité de leurs équipes — en temps réel.",
+    "Cockpit coordonne auxiliaires, responsables de secteur, familles et intervenants libéraux autour du bénéficiaire. Comptes rendus à la voix, pilotage en temps réel, le tout boosté par l'IA.",
   cta: {
     primary: "Demander une démo",
-    secondary: "Découvrir les fonctionnalités",
+    secondary: "Découvrir la solution",
   },
-  stats: [
-    { value: "16h", label: "économisées par auxiliaire chaque mois sur les comptes rendus" },
-    { value: "50h", label: "rendues au manager chaque mois grâce à la visibilité temps réel" },
-    { value: "−40%", label: "de turn-over observé dans les structures pilotes" },
+  badges: [
+    { label: "Certifié HDS", sub: "Hébergeur de Données de Santé" },
+    { label: "Conforme RGPD", sub: "Données protégées & tracées" },
+    { label: "Solution souveraine", sub: "Données stockées en France" },
   ],
-};
-
-// ─── PROBLEM / SOLUTION ──────────────────────────────────────
-export const problem = {
-  headline: "Diriger une structure SAD sans les bons outils,",
-  headlineHighlight: "c'est naviguer à vue.",
-  subheadline:
-    "Les responsables de structures d'aide à domicile perdent chaque jour un temps précieux sur des tâches que le numérique peut résoudre.",
-  pains: [
-    {
-      icon: "📋",
-      title: "Comptes rendus papier ou WhatsApp",
-      description:
-        "Informations perdues, illisibles ou non transmises. Aucune traçabilité, aucune conformité réelle. Et des auxiliaires qui passent plus de temps à écrire qu'à soigner.",
-    },
-    {
-      icon: "🕐",
-      title: "Pilotage à l'aveugle",
-      description:
-        "Impossible de savoir en temps réel si une intervention s'est bien passée, si un bénéficiaire va bien, ou si une auxiliaire a besoin d'aide. Le manager subit au lieu de piloter.",
-    },
-    {
-      icon: "👨‍👩‍👧",
-      title: "Familles tenues à l'écart",
-      description:
-        "Les proches des bénéficiaires n'ont aucune visibilité sur les interventions. L'anxiété s'installe, les appels se multiplient, la confiance s'érode.",
-    },
-  ],
-  solution: {
-    headline: "Un cahier de liaison digital pour toute votre structure.",
-    description:
-      "Cockpit centralise la transmission d'information entre vos auxiliaires, vos managers et les familles. Chaque compte rendu est transmis en temps réel, chaque intervention tracée, chaque alerte remontée — sans papier, sans friction.",
+  // emplacement vidéo / visuel principal — à remplir plus tard
+  media: {
+    label: "Vidéo de présentation Cockpit",
+    hint: "Emplacement vidéo — à intégrer",
   },
 };
 
-// ─── FEATURES ────────────────────────────────────────────────
-export const features = [
-  {
-    icon: "🎙️",
-    title: "Compte rendu vocal IA",
-    description:
-      "Une auxiliaire fait en moyenne 6 à 8 interventions par jour. Avec un compte rendu papier ou WhatsApp (5 à 10 min chacun), c'est 22h par mois perdues en administration. Avec Cockpit : 60 secondes à l'oral, l'IA fait le reste. Gain réel : 16h récupérées chaque mois.",
-    tag: "IA & Voix",
-    color: "from-[#8DC63F]/8 to-emerald-50",
-    details: [
-      "60 sec par intervention au lieu de 5 à 10 min",
-      "16h/mois économisées par auxiliaire",
-      "Détection automatique d'alertes (chute, malaise, changement d'état)",
-    ],
-  },
-  {
-    icon: "📊",
-    title: "Tableau de bord manager",
-    description:
-      "Un manager consacre 2 à 3h par jour à des appels de coordination : vérification d'arrivées, gestion d'incidents, mises à jour de planning. Cockpit centralise tout en temps réel. Résultat : 30 à 50h récupérées chaque mois, libérées pour la qualité de service.",
-    tag: "Pilotage",
-    color: "from-blue-50 to-indigo-50",
-    details: [
-      "30 à 50h libérées par mois par manager",
-      "Interventions, statuts et alertes en temps réel",
-      "Indicateurs bien-être équipes et bénéficiaires",
-    ],
-  },
-  {
-    icon: "🗓️",
-    title: "Gestion intelligente du planning",
-    description:
-      "Créez, modifiez et optimisez les plannings de vos auxiliaires en quelques clics. Gérez les remplacements de dernière minute sans stress et évitez les interventions non couvertes.",
-    tag: "Planning",
-    color: "from-amber-50 to-orange-50",
-    details: [
-      "Remplacement automatique suggéré en cas d'absence",
-      "Optimisation des tournées pour réduire les déplacements",
-      "Respect des contraintes légales et des préférences",
-    ],
-  },
-  {
-    icon: "❤️",
-    title: "Suivi du bien-être des équipes",
-    description:
-      "Cockpit mesure la charge de travail, les signaux d'alerte et le ressenti de chaque auxiliaire. Identifiez l'épuisement avant qu'il mène à une démission.",
-    tag: "Fidélisation",
-    color: "from-rose-50 to-pink-50",
-    details: [
-      "Score de bien-être par auxiliaire",
-      "Détection de surcharge ou d'isolement",
-      "Outils de reconnaissance et de communication interne",
-    ],
-  },
-  {
-    icon: "👤",
-    title: "Dossier bénéficiaire complet",
-    description:
-      "Chaque bénéficiaire dispose d'un dossier centralisé : historique des interventions, notes médicales partagées, préférences, alertes et courbe de bien-être dans le temps.",
-    tag: "Bénéficiaires",
-    color: "from-violet-50 to-purple-50",
-    details: [
-      "Historique complet des interventions",
-      "Indicateurs de bien-être et d'évolution",
-      "Notes partagées entre intervenants",
-    ],
-  },
-  {
-    icon: "🔔",
-    title: "Notifications & alertes temps réel",
-    description:
-      "Ne manquez plus aucun événement critique. Absence non signalée, retard, alerte transmise par une auxiliaire : vous êtes notifié immédiatement sur tous vos appareils.",
-    tag: "Alertes",
-    color: "from-sky-50 to-cyan-50",
-    details: [
-      "Alertes push sur mobile et desktop",
-      "Escalade automatique si non prise en charge",
-      "Journal d'audit complet",
-    ],
-  },
-];
-
-// ─── INTERFACES / PROFILS UTILISATEURS ───────────────────────
-export const interfaces = {
-  headline: "Un outil, quatre espaces dédiés.",
-  subheadline:
-    "Du terrain au bureau, chaque acteur dispose des informations dont il a besoin — sans surcharge, sans doublon.",
-  profiles: [
-    {
-      role: "Manager / Directeur",
-      icon: "🏢",
-      color: "#8DC63F",
-      lightColor: "#8DC63F15",
-      // Ajoutez ici l'URL de votre vidéo YouTube ou Vimeo (ex: "https://www.youtube.com/embed/XXXXX")
-      videoUrl: "",
-      headline: "Le cockpit de pilotage complet",
-      description:
-        "Visibility totale sur l'activité, les équipes et les bénéficiaires. Gérez le planning, traitez les alertes et prenez des décisions éclairées grâce à des indicateurs consolidés en temps réel.",
-      capabilities: [
-        "Tableau de bord temps réel",
-        "Gestion complète du planning",
-        "Rapports et indicateurs RH",
-        "Suivi bien-être bénéficiaires & équipes",
-        "Gestion des alertes et incidents",
-        "Export pour organismes de tutelle",
-      ],
-    },
-    {
-      role: "Auxiliaire de vie",
-      icon: "👩‍⚕️",
-      color: "#3B82F6",
-      lightColor: "#3B82F615",
-      videoUrl: "",
-      headline: "Simple, rapide, pensé pour le terrain",
-      description:
-        "L'application mobile que les auxiliaires adorent parce qu'elle leur fait gagner du temps. Planning clair, compte rendu vocal en 60 secondes, communication directe avec le manager.",
-      capabilities: [
-        "Planning du jour sur mobile",
-        "Compte rendu vocal en 60 secondes",
-        "Fiche bénéficiaire accessible hors-ligne",
-        "Messagerie avec le manager",
-        "Pointage des interventions",
-        "Accès aux documents RH",
-      ],
-    },
-    {
-      role: "Famille du bénéficiaire",
-      icon: "👨‍👩‍👧",
-      color: "#F59E0B",
-      lightColor: "#F59E0B15",
-      videoUrl: "",
-      headline: "La tranquillité d'esprit pour les proches",
-      description:
-        "Les familles accèdent à un espace dédié pour suivre les interventions, lire les comptes rendus et échanger avec la structure. Transparence totale, zéro appel téléphonique.",
-      capabilities: [
-        "Suivi des interventions en temps réel",
-        "Lecture des comptes rendus d'intervention",
-        "Historique et calendrier des passages",
-        "Messagerie avec la structure",
-        "Indicateurs de bien-être du proche",
-        "Notifications importantes automatiques",
-      ],
-      badge: "Disponible",
-    },
-    {
-      role: "Médecins & Infirmiers",
-      icon: "🩺",
-      color: "#8B5CF6",
-      lightColor: "#8B5CF615",
-      videoUrl: "",
-      headline: "La coordination médicale, enfin fluide",
-      description:
-        "Partagez les informations médicales pertinentes directement dans Cockpit. La continuité des soins entre le domicile, les auxiliaires et les professionnels de santé devient enfin possible.",
-      capabilities: [
-        "Accès sécurisé aux dossiers bénéficiaires",
-        "Messagerie sécurisée multi-intervenants",
-        "Partage d'ordonnances et de notes cliniques",
-        "Historique des observations terrain",
-        "Alertes médicales prioritaires",
-        "Conformité RGPD et secret médical",
-      ],
-      badge: "Bientôt disponible",
-    },
-  ],
-};
-
-// ─── BÉNÉFICES BUSINESS ──────────────────────────────────────
-export const benefits = {
-  headline: "Ce que Cockpit change concrètement.",
-  subheadline:
-    "Au-delà des fonctionnalités, Cockpit agit sur les indicateurs qui comptent pour votre structure.",
-  items: [
-    {
-      icon: "📉",
-      metric: "−40%",
-      metricLabel: "de turn-over",
-      title: "Fidélisez vos équipes",
-      description:
-        "En améliorant les conditions de travail, la communication et la reconnaissance des auxiliaires, Cockpit réduit significativement le taux de démission — le problème numéro 1 du secteur.",
-      color: "#8DC63F",
-    },
-    {
-      icon: "⏱️",
-      metric: "50h",
-      metricLabel: "rendues au manager chaque mois",
-      title: "Pilotez sans perdre de temps",
-      description:
-        "Un manager SAP passe en moyenne 90 à 150h par mois en coordination téléphonique, saisie manuelle et reporting. Cockpit automatise ce qui peut l'être : 30 à 50h libérées chaque mois pour se concentrer sur la qualité.",
-      color: "#3B82F6",
-    },
-    {
-      icon: "🏥",
-      metric: "+60%",
-      metricLabel: "de satisfaction familles",
-      title: "Améliorez la qualité de soin",
-      description:
-        "La traçabilité des interventions, la détection précoce des changements d'état et la coordination médicale permettent d'élever significativement la qualité de prise en charge.",
-      color: "#F59E0B",
-    },
-    {
-      icon: "🛡️",
-      metric: "100%",
-      metricLabel: "conforme RGPD",
-      title: "Sécurité & conformité",
-      description:
-        "Hébergement certifié HDS, données stockées en France, chiffrement de bout en bout. Cockpit respecte les exigences légales les plus strictes pour la protection des données de santé.",
-      color: "#8B5CF6",
-    },
-  ],
-};
-
-// ─── PLANNING ────────────────────────────────────────────────
-export const planning = {
-  headline: "La gestion du planning, sans la douleur.",
-  subheadline:
-    "Le planning est la colonne vertébrale d'une structure SAP. Cockpit le rend enfin maîtrisable.",
-  features: [
-    {
-      icon: "🔄",
-      title: "Remplacement intelligent",
-      description:
-        "En cas d'absence, Cockpit identifie automatiquement les auxiliaires disponibles ayant les compétences requises et la proximité géographique pour assurer le remplacement.",
-    },
-    {
-      icon: "🗺️",
-      title: "Optimisation des tournées",
-      description:
-        "Réduisez les temps de trajet inutiles en optimisant les tournées. Moins de fatigue pour les auxiliaires, moins de coûts pour la structure.",
-    },
-    {
-      icon: "⚖️",
-      title: "Équité et bien-être",
-      description:
-        "Cockpit veille à la répartition équilibrée de la charge de travail et des contraintes (week-ends, horaires difficiles) pour préserver le bien-être des équipes.",
-    },
-    {
-      icon: "📱",
-      title: "Planning mobile en temps réel",
-      description:
-        "Les auxiliaires voient leur planning mis à jour en temps réel sur leur mobile. Les modifications, annulations et remplacements sont communiqués instantanément.",
-    },
-  ],
-};
-
-// ─── CERTIFICATIONS ──────────────────────────────────────────
-export const certifications = {
-  headline: "Sécurité et conformité au niveau médical",
-  subheadline:
-    "Cockpit est conçu dès le départ pour répondre aux exigences les plus strictes du secteur de la santé.",
-  items: [
-    {
-      name: "HDS",
-      fullName: "Hébergeur de Données de Santé",
-      status: "certified" as const,
-      statusLabel: "Certifié",
-      description:
-        "Cockpit est hébergé sur une infrastructure certifiée HDS (Hébergeur de Données de Santé) délivrée par l'ANS. Vos données et celles de vos bénéficiaires sont stockées et traitées en conformité avec les exigences légales françaises pour les données de santé.",
-      icon: "🛡️",
-      color: "#8DC63F",
-    },
-    {
-      name: "Ségur",
-      fullName: "Ségur du Numérique en Santé",
-      status: "soon" as const,
-      statusLabel: "En cours",
-      description:
-        "Cockpit est en cours de référencement Ségur du Numérique en Santé, le programme national piloté par le Ministère de la Santé pour accélérer le partage de données entre les acteurs du soin. Une fois référencé, vos équipes bénéficieront des financements associés.",
-      icon: "🏥",
-      color: "#3B82F6",
-    },
-    {
-      name: "Pro Santé Connect",
-      fullName: "Pro Santé Connect",
-      status: "soon" as const,
-      statusLabel: "Bientôt",
-      description:
-        "L'intégration Pro Santé Connect permettra aux professionnels de santé (médecins, infirmiers) de s'authentifier sur Cockpit avec leur carte CPS ou leur compte e-CPS, garantissant une identification sécurisée et conforme aux normes de l'ANS.",
-      icon: "🔐",
-      color: "#8B5CF6",
-    },
-  ],
-};
-
-// ─── TRUSTED BY ──────────────────────────────────────────────
+// ─── LOGOS / TRACTION ────────────────────────────────────────
 export const trustedBy = {
-  headline: "Ils font confiance à Cockpit.",
-  subheadline: "",
+  headline: "Ils nous font déjà confiance",
+  subheadline:
+    "Plus de 20 agences d'aide à domicile pilotent leur activité avec Cockpit.",
   logos: [
     { name: "Le Temps de Vivre", src: "/logos/le-temps-de-vivre.png" },
     { name: "Présence", src: "/logos/presence.png" },
@@ -371,157 +116,469 @@ export const trustedBy = {
     { name: "Ensemble Autrement", src: "/logos/ensemble-autrement.png" },
     { name: "Générale des Services", src: "/logos/generale-des-services.png" },
   ],
-  note: "",
+  stats: [
+    { value: 20, suffix: "+", label: "agences équipées" },
+    { value: 4000, suffix: "+", label: "bénéficiaires suivis" },
+    { value: 16, suffix: "h", label: "économisées / mois / auxiliaire" },
+    { value: 100, suffix: "%", label: "des comptes rendus centralisés" },
+  ],
 };
 
-// ─── SCREENSHOTS ─────────────────────────────────────────────
-export const screenshots = {
-  headline: "Une interface pensée pour le terrain.",
+// ─── CONSTAT / PROBLÈME ──────────────────────────────────────
+export const problem = {
+  eyebrow: "LE CONSTAT",
+  headline: "Coordonner les actions autour des bénéficiaires,",
+  headlineHighlight: "c'est encore du bricolage.",
   subheadline:
-    "Simple pour les auxiliaires de vie, puissante pour les managers, rassurante pour les familles.",
-  items: [
+    "Sans outil adapté, l'information se perd entre le terrain, le bureau et les familles — au détriment du soin et des équipes.",
+  pains: [
     {
-      title: "Tableau de bord manager",
+      icon: "notebook",
+      title: "Des carnets papier perdus ou jamais lus",
       description:
-        "Vue complète des interventions du jour, alertes et indicateurs clés en un seul écran.",
-      src: "/screenshots/dashboard.png",
-      placeholder: true,
+        "Un passage = une feuille. L'info reste chez le bénéficiaire, invisible pour le reste de l'équipe et la famille.",
     },
     {
-      title: "Fiche bénéficiaire",
+      icon: "chat",
+      title: "Des groupes WhatsApp incontrôlables",
       description:
-        "Tout l'historique, les préférences et les indicateurs de bien-être d'un bénéficiaire.",
-      src: "/screenshots/beneficiary.png",
-      placeholder: true,
+        "Messages mélangés, photos non sécurisées, RGPD nulle part. Personne ne sait qui a lu quoi.",
     },
     {
-      title: "Compte rendu vocal",
+      icon: "family",
+      title: "Des familles dans le flou",
       description:
-        "L'auxiliaire dicte son compte rendu en 60 secondes. L'IA fait le reste.",
-      src: "/screenshots/voice.png",
-      placeholder: true,
+        "Elles appellent pour avoir des nouvelles ; vous répondez quand vous pouvez. La confiance s'érode.",
+    },
+  ],
+  stats: [
+    { value: "~3h", label: "par auxiliaire / semaine perdues en retranscription manuelle" },
+    { value: "38%", label: "des signalements importants n'arrivent jamais au manager" },
+    { value: "×2", label: "de turn-over dans les structures sans outil terrain adapté" },
+  ],
+};
+
+// ─── SOLUTION / HUB ──────────────────────────────────────────
+export const solution = {
+  eyebrow: "LA SOLUTION",
+  headline: "Une plateforme qui coordonne,",
+  highlights: ["simplifie", "améliore"],
+  headlineEnd: "les actions terrain.",
+  subheadline:
+    "Chaque acteur dépose et consulte ce qui le concerne. Cockpit centralise, structure et restitue — en temps réel, autour du bénéficiaire.",
+  hub: {
+    title: "Cockpit",
+    subtitle: "Le hub qui orchestre toutes les interactions autour du bénéficiaire.",
+    aiBadge: "Boosté par l'IA",
+    aiPoints: [
+      "Synthétise les comptes rendus vocaux",
+      "Trie les points d'attention",
+      "Alerte au bon moment",
+    ],
+  },
+  actors: [
+    {
+      key: "aux",
+      role: "Auxiliaires",
+      position: "Sur le terrain",
+      color: "#8DC63F",
+      verbs: "Dépose · Signale · S'informe",
+      description:
+        "Dépose ses comptes rendus à la voix, photographie les moments clés et consulte les consignes du bénéficiaire depuis son téléphone.",
     },
     {
-      title: "Espace famille",
+      key: "manager",
+      role: "Responsables de secteur",
+      position: "Au pilotage",
+      color: "#3B82F6",
+      verbs: "Suit · Analyse · Décide",
       description:
-        "Les proches suivent les interventions et communiquent avec la structure.",
-      src: "/screenshots/family.png",
-      placeholder: true,
+        "Suit les remontées en temps réel, analyse les tendances des bénéficiaires et déploie les bonnes actions au bon moment.",
+    },
+    {
+      key: "famille",
+      role: "Familles",
+      position: "Rassurées",
+      color: "#8B5CF6",
+      verbs: "Lit · Réagit · S'informe",
+      description:
+        "Accède à un newsfeed du quotidien de leur proche : actes réalisés, photos, humeur, anecdotes.",
+    },
+    {
+      key: "pro",
+      role: "Intervenants libéraux",
+      position: "Connectés",
+      color: "#F59E0B",
+      verbs: "S'informe · Alimente · Partage",
+      description:
+        "Infirmiers, kinés, médecins partagent leurs observations sur la même fiche bénéficiaire — sans WhatsApp, sans papier.",
     },
   ],
 };
 
-// ─── TESTIMONIALS ─────────────────────────────────────────────
+// ─── FEATURE TABS (capacités) ────────────────────────────────
+export const featureTabs = {
+  eyebrow: "TOUT-EN-UN",
+  headline: "Tout ce dont vos équipes",
+  highlight: "ont besoin.",
+  subheadline:
+    "Du compte rendu vocal au pilotage, en passant par le planning et la conformité — Cockpit couvre chaque maillon de la coordination.",
+  tabs: [
+    {
+      key: "vocal",
+      icon: "mic",
+      tab: "CR vocal IA",
+      color: "#8DC63F",
+      eyebrow: "COMPTE RENDU VOCAL IA",
+      title: "Le pouvoir de la voix, au service du soin.",
+      description:
+        "L'auxiliaire décrit oralement son intervention. L'IA transcrit, corrige et range : actes réalisés, état général, points d'attention — en moins d'une minute.",
+      bullets: [
+        "Dépôt vocal en 1 clic, structuration automatique",
+        "Briefing audio généré à partir des derniers CR",
+        "Détection des points d'attention et alertes",
+        "Fonctionne même avec une main occupée",
+      ],
+      media: { label: "App Auxiliaire — compte rendu vocal", hint: "Vidéo / capture à intégrer" },
+    },
+    {
+      key: "dashboard",
+      icon: "grid",
+      tab: "Tableau de bord",
+      color: "#3B82F6",
+      eyebrow: "TABLEAU DE BORD MANAGER",
+      title: "Décider au bon moment, sans rouvrir 10 dossiers.",
+      description:
+        "Tous les comptes rendus centralisés, une synthèse IA hebdo/mensuelle, et la possibilité de faire remonter des consignes ciblées au terrain en un clic.",
+      bullets: [
+        "Interventions, auxiliaires et bénéficiaires en temps réel",
+        "Plans d'action et suivi dans le temps",
+        "Synthèse IA : humeur, alertes, tendances",
+        "Remontée vers le terrain, lecture tracée",
+      ],
+      media: { label: "App Manager — tableau de bord", hint: "Vidéo / capture à intégrer" },
+    },
+    {
+      key: "planning",
+      icon: "calendar",
+      tab: "Planning",
+      color: "#F59E0B",
+      eyebrow: "PLANNING INTELLIGENT",
+      title: "La gestion du planning, sans la douleur.",
+      description:
+        "Cockpit propose des remplacements en tenant compte des conventions collectives, des contraintes des salariés et des diplômes requis. La télégestion et les missions du jour incluses.",
+      bullets: [
+        "Remplacements suggérés selon convention & diplômes",
+        "Planning autonome créé par les auxiliaires",
+        "Télégestion & pointage des interventions",
+        "Missions du jour visibles sur mobile",
+      ],
+      media: { label: "Module Planning", hint: "Vidéo / capture à intégrer" },
+    },
+    {
+      key: "securite",
+      icon: "shield",
+      tab: "Sécurité & conformité",
+      color: "#8B5CF6",
+      eyebrow: "SÉCURITÉ & CONFORMITÉ",
+      title: "Au niveau d'exigence de la santé.",
+      description:
+        "Hébergement certifié HDS, données stockées en France, conformité RGPD et option de conformité HAS. La traçabilité devient aussi une sécurité juridique.",
+      bullets: [
+        "Hébergeur de Données de Santé (HDS)",
+        "Conforme RGPD, données souveraines en France",
+        "Option conformité HAS",
+        "Accès limité par bénéficiaire, lecture tracée",
+      ],
+      media: { label: "Sécurité & conformité", hint: "Vidéo / capture à intégrer" },
+    },
+  ],
+};
+
+// ─── APPS (cartes empilées — 4 espaces) ──────────────────────
+export const apps = {
+  eyebrow: "UN OUTIL, QUATRE ESPACES",
+  headline: "Parlez.",
+  highlight: "Cockpit s'occupe du reste.",
+  subheadline:
+    "Du terrain au bureau, chaque acteur dispose d'un espace dédié — sans surcharge, sans doublon.",
+  items: [
+    {
+      id: "auxiliaire",
+      key: "aux",
+      color: "#8DC63F",
+      eyebrow: "APP AUXILIAIRE",
+      sidebarTitle: "Auxiliaires",
+      sidebarDesc: "Remonter le terrain en une note vocale.",
+      title: "Remontez les actions terrain en une simple note vocale.",
+      description:
+        "L'auxiliaire décrit oralement son intervention. L'IA structure le compte rendu et l'envoie au manager — en moins d'une minute, entre deux portes.",
+      steps: [
+        { n: "01", title: "Briefing audio en 1 clic", desc: "Avant d'intervenir, l'auxiliaire écoute un briefing issu des derniers comptes rendus." },
+        { n: "02", title: "Dépôt vocal, structuration auto", desc: "Elle raconte ce qu'elle a fait. L'IA transcrit, corrige et range tout." },
+        { n: "03", title: "Liste d'actions par bénéficiaire", desc: "La to-do du jour et les plans d'action, sans rien chercher." },
+        { n: "04", title: "Envoi immédiat à l'encadrement", desc: "Le CR arrive en temps réel chez le responsable de secteur." },
+      ],
+      stats: [
+        { value: "~1min", label: "par compte rendu" },
+        { value: "16h", label: "économisées / mois / auxiliaire" },
+        { value: "0", label: "friction, même main occupée" },
+      ],
+      media: { label: "App Auxiliaire", hint: "Vidéo / capture à intégrer" },
+    },
+    {
+      id: "manager",
+      key: "manager",
+      color: "#3B82F6",
+      eyebrow: "APP MANAGER",
+      sidebarTitle: "Managers",
+      sidebarDesc: "Piloter sans rouvrir 10 dossiers.",
+      title: "Accompagnez encore mieux vos équipes.",
+      description:
+        "L'application manager centralise tous les comptes rendus, génère la synthèse globale des interventions et fait remonter les points de suivi directement aux auxiliaires.",
+      steps: [
+        { n: "01", title: "Tous les CR centralisés", desc: "Un tableau de bord unique : points d'attention, taux de remontée, couverture." },
+        { n: "02", title: "Plan d'action et suivi", desc: "Créez des plans d'action par bénéficiaire et suivez leur réalisation." },
+        { n: "03", title: "Synthèse automatisée", desc: "Une analyse IA hebdo, mensuelle ou trimestrielle du terrain." },
+        { n: "04", title: "Remontée vers le terrain", desc: "Adressez des consignes ciblées en un clic, lecture tracée." },
+      ],
+      stats: [
+        { value: "100%", label: "des CR centralisés" },
+        { value: "~5min", label: "pour débriefer un mois entier" },
+        { value: "0", label: "oubli, les suivis arrivent au terrain" },
+      ],
+      media: { label: "App Manager", hint: "Vidéo / capture à intégrer" },
+    },
+    {
+      id: "famille",
+      key: "famille",
+      color: "#8B5CF6",
+      eyebrow: "APP FAMILLE",
+      sidebarTitle: "Familles",
+      sidebarDesc: "Des nouvelles, vraiment.",
+      title: "Valorisez votre action auprès des familles.",
+      description:
+        "Chaque intervention devient un lien : nouvelles du jour, humeur, photos partagées et messagerie directe avec l'équipe. Vos auxiliaires deviennent les ambassadeurs du service rendu.",
+      steps: [
+        { n: "01", title: "Des nouvelles, vraiment", desc: "Humeur du jour, moments partagés, photos : un vrai récit du quotidien." },
+        { n: "02", title: "Suivi fluide, sans friction", desc: "Dernier passage, prochaine visite, planning consultable jour par jour." },
+        { n: "03", title: "Une seule conversation, toute l'équipe", desc: "Une messagerie unique, tracée. Fini WhatsApp et les emails perdus." },
+      ],
+      stats: [
+        { value: "+82%", label: "de familles satisfaites du suivi" },
+        { value: "−60%", label: "d'appels entrants au bureau" },
+        { value: "1 fil", label: "de conversation, jamais 10 canaux" },
+      ],
+      media: { label: "App Famille", hint: "Vidéo / capture à intégrer" },
+    },
+    {
+      id: "pros",
+      key: "pro",
+      color: "#F59E0B",
+      eyebrow: "APP INTERVENANTS LIBÉRAUX",
+      sidebarTitle: "Intervenants libéraux",
+      sidebarDesc: "Tout le cercle de soin, connecté.",
+      title: "Coordonnez tous les pros autour du bénéficiaire.",
+      description:
+        "Infirmiers, kinés, médecins partagent leurs observations sur la même fiche bénéficiaire — pour une prise en charge cohérente et tracée. Greffez un intervenant extérieur en moins d'une minute.",
+      steps: [
+        { n: "01", title: "Invitation en un clic", desc: "Invitez l'IDEL, le médecin, le kiné par SMS ou email. Compte créé en < 1 min." },
+        { n: "02", title: "Un fil partagé par bénéficiaire", desc: "CR, observations et points d'attention convergent dans un même fil." },
+        { n: "03", title: "Messagerie inter-pros", desc: "Discussion directe, traçable et sécurisée. Accès limité, RGPD-compliant." },
+      ],
+      stats: [
+        { value: "1 fil", label: "partagé pour tous les pros" },
+        { value: "∞", label: "invités par bénéficiaire" },
+        { value: "100%", label: "RGPD & accès limité" },
+      ],
+      media: { label: "App Intervenants libéraux — cercle de soin", hint: "Vidéo / capture à intégrer" },
+    },
+  ],
+};
+
+// ─── RÉSULTATS (bento) ───────────────────────────────────────
+export const results = {
+  eyebrow: "RÉSULTATS MESURÉS",
+  headline: "Des résultats concrets,",
+  highlight: "instantanément.",
+  subheadline:
+    "Au-delà des fonctionnalités, Cockpit agit sur les indicateurs qui comptent pour votre structure.",
+  // type: "stat" (carte chiffre) | "photo" (emplacement photo à remplir)
+  cells: [
+    { type: "stat", tone: "brand", value: "16h", label: "économisées par mois et par auxiliaire", sub: "grâce au CR vocal IA" },
+    { type: "photo", label: "Photo — auxiliaire & bénéficiaire", hint: "à intégrer" },
+    { type: "stat", tone: "light", value: "~3h", label: "récupérées par semaine et par auxiliaire", sub: "fini la retranscription manuelle" },
+    { type: "photo", label: "Photo — moment de soin", hint: "à intégrer" },
+    { type: "photo", label: "Photo — usage de l'app", hint: "à intégrer" },
+    { type: "stat", tone: "dark", value: "−40%", label: "de turn-over en 12 mois", sub: "équipes mieux accompagnées" },
+    { type: "stat", tone: "dark", value: "+82%", label: "de familles satisfaites du suivi", sub: "−60% d'appels au bureau" },
+    { type: "photo", label: "Photo — famille rassurée", hint: "à intégrer" },
+  ],
+};
+
+// ─── MODULES (au-delà du CR) ─────────────────────────────────
+export const modules = {
+  eyebrow: "AU-DELÀ DU COMPTE RENDU",
+  headline: "Cockpit ne s'arrête pas",
+  highlight: "au compte rendu.",
+  subheadline:
+    "Une plateforme complète pour piloter le planning, les missions, la coordination et le bien-être des équipes.",
+  note: "Modules co-construits avec nos pilotes · déployés progressivement en 2026",
+  items: [
+    {
+      icon: "calendar",
+      color: "#3B82F6",
+      title: "Planning intelligent & autonome",
+      desc: "Remplacements suggérés selon conventions collectives, contraintes salariés et diplômes. Les auxiliaires créent leur propre planning, vous validez en un clin d'œil.",
+      stat: "~30 sec",
+      statLabel: "pour réaffecter une intervention",
+    },
+    {
+      icon: "phone",
+      color: "#8DC63F",
+      title: "Télégestion & missions du jour",
+      desc: "Pointage des interventions et missions du jour visibles sur mobile : chaque auxiliaire ouvre son téléphone et sait exactement quoi faire.",
+      stat: "0 sec",
+      statLabel: "de prise de poste hésitante",
+    },
+    {
+      icon: "chat",
+      color: "#F59E0B",
+      title: "Messagerie interne sécurisée",
+      desc: "Une vraie messagerie type WhatsApp, un fil par bénéficiaire, tracée et sécurisée. Fini les groupes WhatsApp et les SMS perdus.",
+      stat: "−60%",
+      statLabel: "d'appels & SMS hors-cadre",
+    },
+    {
+      icon: "heart",
+      color: "#8B5CF6",
+      title: "Bien-être auxiliaires & bénéficiaires",
+      desc: "Score d'humeur, signaux faibles, badges de compétences côté auxiliaire et bénéficiaire. Voir qui décroche avant qu'il ne parte — et qui valoriser.",
+      stat: "−40%",
+      statLabel: "de turn-over en 12 mois",
+    },
+    {
+      icon: "doc",
+      color: "#3B82F6",
+      title: "Projets personnalisés digitalisés",
+      desc: "Plan d'accompagnement personnalisé (PAP), fiches missions, projets de vie et grille de tâches — créés et suivis directement dans Cockpit.",
+      stat: "100%",
+      statLabel: "numérisé, fini le papier",
+    },
+    {
+      icon: "trophy",
+      color: "#F59E0B",
+      title: "Gamification & badges",
+      desc: "Un système de badges côté auxiliaire et manager pour rendre l'outil attrayant et valoriser l'engagement au quotidien.",
+      stat: "+ d'engagement",
+      statLabel: "des équipes sur l'outil",
+    },
+  ],
+};
+
+// ─── ACCOMPAGNEMENT / ONBOARDING ─────────────────────────────
+export const onboarding = {
+  eyebrow: "ON S'OCCUPE DE TOUT",
+  headline: "Un accompagnement",
+  highlight: "de bout en bout.",
+  subheadline:
+    "De la reprise de vos données à la formation continue de vos équipes, Cockpit prend tout en charge. Vous n'avez qu'à utiliser l'outil.",
+  steps: [
+    {
+      n: "01",
+      title: "Reprise des données",
+      desc: "On rentre toutes vos données clients et bénéficiaires pour vous. Vous n'avez rien à saisir.",
+    },
+    {
+      n: "02",
+      title: "Onboarding en moins d'une semaine",
+      desc: "Vos équipes sont opérationnelles en quelques jours. On paramètre tout selon votre fonctionnement.",
+    },
+    {
+      n: "03",
+      title: "Formation en direct",
+      desc: "Des sessions de formation auprès des auxiliaires, plusieurs fois par mois, pour les accompagner au quotidien.",
+    },
+    {
+      n: "04",
+      title: "Support réactif en français",
+      desc: "Une équipe disponible pour épauler vos collaboratrices et faire évoluer l'outil avec vous.",
+    },
+  ],
+};
+
+// ─── INTÉGRATIONS & CERTIFICATIONS ───────────────────────────
+export const integrations = {
+  eyebrow: "INTÉGRATIONS",
+  headline: "Cockpit s'intègre à",
+  highlight: "vos outils existants.",
+  subheadline:
+    "Solution ouverte qui se connecte par clé API à vos logiciels métier et CRM. Reliez vos données Cockpit à votre logiciel principal, sans double saisie.",
+  logos: [
+    { name: "Ximi", src: "/logos/ximi.png" },
+    { name: "Arche", src: "/logos/arche.png" },
+    { name: "Ogust", src: "/logos/ogust-quadri-fond-blanc-100-e1648058063964.png" },
+    { name: "Apologic", src: "/logos/apologic.png" },
+    { name: "Salesforce", src: "/logos/salesforce.png" },
+    { name: "HubSpot", src: "/logos/hubspot.png" },
+  ],
+  note: "Et bien d'autres — contactez-nous pour toute intégration spécifique.",
+  certifications: [
+    {
+      name: "Certifié HDS",
+      desc: "Hébergeur de Données de Santé, infrastructure certifiée par l'ANS.",
+      icon: "shield",
+    },
+    {
+      name: "Conforme RGPD",
+      desc: "Données protégées, tracées et hébergées en France.",
+      icon: "lock",
+    },
+    {
+      name: "Solution souveraine",
+      desc: "Données 100% stockées et traitées en France.",
+      icon: "flag",
+    },
+  ],
+};
+
+// ─── TÉMOIGNAGES ─────────────────────────────────────────────
 export const testimonials = {
+  eyebrow: "ILS UTILISENT COCKPIT",
   headline: "Ce qu'ils en disent.",
   subheadline:
     "Des responsables de structures qui ont transformé leur quotidien avec Cockpit.",
+  stats: [
+    { value: 20, suffix: "+", label: "agences équipées" },
+    { value: 1000, suffix: "+", label: "auxiliaires actives" },
+    { value: 4000, suffix: "+", label: "bénéficiaires suivis" },
+  ],
   items: [
-    {
-      quote: "Cockpit nous a fait gagner un temps considérable sur les comptes rendus. Nos auxiliaires l'ont adopté en quelques jours — et certaines nous ont dit qu'elles se sentaient enfin écoutées.",
-      author: "Marie L.",
-      role: "Directrice",
-      structure: "SAAD Loire-Atlantique",
-    },
-    {
-      quote: "Finies les fiches papier perdues dans les classeurs. Tout est centralisé, consultable en deux clics. Nos équipes soignantes gagnent un temps précieux au quotidien.",
-      author: "Bernard T.",
-      role: "Directeur adjoint",
-      structure: "EHPAD Les Pins d'Or — Alsace",
-    },
-    {
-      quote: "Nos familles adorent l'espace dédié. Elles voient en temps réel que leur proche a bien été pris en charge. Les appels anxieux ont quasiment disparu.",
-      author: "Sophie M.",
-      role: "Coordinatrice",
-      structure: "Résidence Les Magnolias — PACA",
-    },
-    {
-      quote: "La transmission d'information entre l'équipe de nuit et l'équipe de jour n'a jamais été aussi fluide. Cockpit a vraiment changé notre façon de travailler.",
-      author: "Isabelle R.",
-      role: "Responsable de site",
-      structure: "Maison de retraite Saint-Joseph — Bretagne",
-    },
-    {
-      quote: "En tant que lieu de vie, nous avons des besoins très spécifiques. Cockpit s'est adapté à notre fonctionnement et nos équipes ont été formées en moins d'une journée.",
-      author: "François D.",
-      role: "Gestionnaire",
-      structure: "Lieu de vie L'Escale — Normandie",
-    },
-    {
-      quote: "Le compte rendu vocal IA est une révolution pour nos aides-soignantes. Elles terminent leur journée sans paperasse. Le moral des équipes a clairement progressé.",
-      author: "Nathalie P.",
-      role: "Directrice",
-      structure: "SAAD Solidarité Domicile — Occitanie",
-    },
-    {
-      quote: "Nous avions du mal à suivre l'état de bien-être de nos résidents sur le long terme. Avec Cockpit, on a enfin un historique clair et des alertes si quelque chose change.",
-      author: "Jean-Marc V.",
-      role: "Médecin coordinateur",
-      structure: "EHPAD La Colline Verte — Auvergne",
-    },
-    {
-      quote: "La visibilité en temps réel sur les interventions m'a permis de réduire mes appels de vérification de plus de moitié. Je peux me concentrer sur ce qui compte vraiment.",
-      author: "Amandine C.",
-      role: "Responsable coordination",
-      structure: "Association Aide & Présence — Pays de Loire",
-    },
-    {
-      quote: "On travaille avec des personnes vulnérables. La traçabilité que Cockpit nous apporte, c'est aussi une sécurité juridique. Chaque intervention est documentée, horodatée.",
-      author: "Karim B.",
-      role: "Directeur",
-      structure: "SAAD Proximité Services — Île-de-France",
-    },
-    {
-      quote: "Nos auxiliaires de vie venaient souvent nous voir épuisées. Depuis Cockpit, elles se sentent mieux organisées, moins stressées. Le turn-over a nettement baissé.",
-      author: "Céline M.",
-      role: "DRH",
-      structure: "Groupe Domicile & Vie — Hauts-de-France",
-    },
-    {
-      quote: "La mise en place a été très rapide. En une semaine, toute notre équipe utilisait Cockpit. L'interface est vraiment intuitive, même pour les profils peu à l'aise avec le numérique.",
-      author: "Patricia N.",
-      role: "Directrice",
-      structure: "Maison de retraite Le Clos Fleuri — Bourgogne",
-    },
-    {
-      quote: "Ce que j'apprécie particulièrement, c'est la remontée automatique des alertes. Plus besoin d'attendre le compte rendu du soir pour savoir si un résident a eu une chute.",
-      author: "David L.",
-      role: "Infirmier coordinateur",
-      structure: "SSIAD Grand Est",
-    },
-    {
-      quote: "Cockpit a transformé la relation avec les familles. Elles ont accès aux comptes rendus, elles voient le travail de nos équipes. La confiance s'est renforcée naturellement.",
-      author: "Sylvie H.",
-      role: "Responsable qualité",
-      structure: "Résidence Senior L'Harmonie — Nouvelle-Aquitaine",
-    },
-    {
-      quote: "On gérait tout sur Excel et WhatsApp. Passer à Cockpit, ça a été un choc positif. On a l'impression de travailler enfin dans une vraie structure professionnelle.",
-      author: "Olivier G.",
-      role: "Co-fondateur",
-      structure: "Lieu de vie Les Roseaux — Centre-Val de Loire",
-    },
-    {
-      quote: "Le rapport mensuel qu'on devait faire à la main en 3h, Cockpit le génère automatiquement. On peut se concentrer sur l'accompagnement plutôt que sur l'administratif.",
-      author: "Fatima A.",
-      role: "Directrice",
-      structure: "SAAD Avenir Domicile — Midi-Pyrénées",
-    },
+    { quote: "Cockpit nous a fait gagner un temps considérable sur les comptes rendus. Nos auxiliaires l'ont adopté en quelques jours — et certaines se sentent enfin écoutées.", author: "Marie L.", role: "Directrice", structure: "SAAD Loire-Atlantique" },
+    { quote: "Finies les fiches papier perdues dans les classeurs. Tout est centralisé, consultable en deux clics. Nos équipes gagnent un temps précieux au quotidien.", author: "Bernard T.", role: "Directeur adjoint", structure: "Structure SAD — Alsace" },
+    { quote: "Nos familles adorent l'espace dédié. Elles voient en temps réel que leur proche a bien été pris en charge. Les appels anxieux ont quasiment disparu.", author: "Sophie M.", role: "Coordinatrice", structure: "SAAD — PACA" },
+    { quote: "La transmission entre l'équipe du matin et celle du soir n'a jamais été aussi fluide. Cockpit a vraiment changé notre façon de travailler.", author: "Isabelle R.", role: "Responsable de secteur", structure: "SAAD — Bretagne" },
+    { quote: "Le compte rendu vocal IA est une révolution pour nos auxiliaires. Elles terminent leur journée sans paperasse. Le moral des équipes a clairement progressé.", author: "Nathalie P.", role: "Directrice", structure: "SAAD Solidarité Domicile — Occitanie" },
+    { quote: "La visibilité en temps réel m'a permis de réduire mes appels de vérification de plus de moitié. Je peux me concentrer sur ce qui compte vraiment.", author: "Amandine C.", role: "Responsable coordination", structure: "Aide & Présence — Pays de Loire" },
+    { quote: "On travaille avec des personnes vulnérables. La traçabilité que Cockpit nous apporte, c'est aussi une sécurité juridique. Chaque intervention est documentée.", author: "Karim B.", role: "Directeur", structure: "SAAD Proximité Services — Île-de-France" },
+    { quote: "Nos auxiliaires venaient souvent nous voir épuisées. Depuis Cockpit, elles se sentent mieux organisées, moins stressées. Le turn-over a nettement baissé.", author: "Céline M.", role: "DRH", structure: "Groupe Domicile & Vie — Hauts-de-France" },
+    { quote: "La mise en place a été très rapide. En une semaine, toute l'équipe utilisait Cockpit. L'interface est intuitive, même pour les profils peu à l'aise avec le numérique.", author: "Patricia N.", role: "Directrice", structure: "SAAD — Bourgogne" },
+    { quote: "Ce que j'apprécie, c'est la remontée automatique des alertes. Plus besoin d'attendre le compte rendu du soir pour savoir si un bénéficiaire a eu une chute.", author: "David L.", role: "Infirmier coordinateur", structure: "SSIAD Grand Est" },
+    { quote: "Le rapport mensuel qu'on faisait à la main en 3h, Cockpit le génère automatiquement. On se concentre sur l'accompagnement plutôt que l'administratif.", author: "Fatima A.", role: "Directrice", structure: "SAAD Avenir Domicile — Midi-Pyrénées" },
+    { quote: "L'intégration avec notre logiciel métier s'est faite très rapidement. L'équipe nous a vraiment accompagnés du début à la fin.", author: "Olivier G.", role: "Co-fondateur", structure: "SAAD — Centre-Val de Loire" },
   ],
 };
 
-// ─── FINAL CTA ────────────────────────────────────────────────
+// ─── FINAL CTA ───────────────────────────────────────────────
 export const finalCta = {
-  headline: "Demandez une démo.",
+  eyebrow: "LA FIN DU CARNET PAPIER",
+  headline: "Votre équipe mérite un outil à la hauteur de son travail.",
   subheadline:
     "Découvrez Cockpit en 30 minutes avec notre équipe. Démo personnalisée, sans engagement, sur votre cas d'usage réel.",
   formTitle: "Réserver ma démo",
   fields: {
     name: { label: "Votre nom", placeholder: "Marie Dupont" },
-    structure: {
-      label: "Nom de la structure",
-      placeholder: "Association Aide à domicile 44",
-    },
+    structure: { label: "Nom de la structure", placeholder: "Aide à domicile 44" },
     email: { label: "Email professionnel", placeholder: "marie@structure.fr" },
     phone: { label: "Téléphone", placeholder: "06 12 34 56 78" },
   },
@@ -531,20 +588,49 @@ export const finalCta = {
   trustItems: [
     "Démo 30 min sur votre cas d'usage",
     "Sans engagement, sans carte bancaire",
-    "Déploiement en moins d'une semaine",
-    "Formation incluse pour vos équipes",
-    "Support réactif en français",
+    "Onboarding en moins d'une semaine",
+    "Reprise de vos données incluse",
+    "Formation & support en français",
+  ],
+  contacts: [
+    { name: "Arthur Cesaro", email: "arthur@sahanest.fr", phone: "06 21 09 47 20" },
+    { name: "Jean de Guerre", email: "jean@sahanest.fr", phone: "06 15 43 96 88" },
   ],
 };
 
-// ─── FOOTER ───────────────────────────────────────────────────
+// ─── FOOTER ──────────────────────────────────────────────────
 export const footer = {
-  tagline: "La gestion de l'aide à domicile, réinventée.",
-  links: [
-    { label: "FAQ", href: "/faq" },
-    { label: "Mentions légales", href: "/mentions-legales" },
-    { label: "Confidentialité", href: "/confidentialite" },
-    { label: "Contact", href: "/contact" },
+  tagline: "Pour faciliter l'aide à domicile.",
+  description:
+    "Cockpit coordonne auxiliaires, managers, familles et intervenants libéraux autour du bénéficiaire.",
+  columns: [
+    {
+      title: "Solutions",
+      links: [
+        { label: "App Auxiliaire", href: "#auxiliaire" },
+        { label: "App Manager", href: "#manager" },
+        { label: "App Famille", href: "#famille" },
+        { label: "Intervenants libéraux", href: "#pros" },
+      ],
+    },
+    {
+      title: "Plateforme",
+      links: [
+        { label: "Sécurité & conformité", href: "#confiance" },
+        { label: "Intégrations & API", href: "#integrations" },
+        { label: "Accompagnement", href: "#accompagnement" },
+        { label: "Résultats", href: "#resultats" },
+      ],
+    },
+    {
+      title: "Ressources",
+      links: [
+        { label: "FAQ", href: "/faq" },
+        { label: "Contact", href: "/contact" },
+        { label: "Mentions légales", href: "/mentions-legales" },
+        { label: "Confidentialité", href: "/confidentialite" },
+      ],
+    },
   ],
-  copyright: `© ${new Date().getFullYear()} Cockpit. Tous droits réservés.`,
+  copyright: `© ${new Date().getFullYear()} Cockpit — SAHANEST. Tous droits réservés.`,
 };

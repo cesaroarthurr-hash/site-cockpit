@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/content";
+
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const sans = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -43,8 +58,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className="antialiased">{children}</body>
+    <html lang="fr" className={`scroll-smooth ${display.variable} ${sans.variable}`}>
+      <body className="antialiased font-sans">{children}</body>
     </html>
   );
 }

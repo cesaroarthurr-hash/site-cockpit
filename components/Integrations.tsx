@@ -2,103 +2,57 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-
-const integrations = [
-  { name: "Ximi", logo: "/logos/ximi.png" },
-  { name: "Arche", logo: "/logos/arche.png" },
-  { name: "Ogust", logo: "/logos/ogust-quadri-fond-blanc-100-e1648058063964.png" },
-  { name: "Apologic", logo: "/logos/apologic.png" },
-  { name: "Salesforce", logo: "/logos/salesforce.png" },
-  { name: "HubSpot", logo: "/logos/hubspot.png" },
-];
+import { integrations } from "@/lib/content";
+import { Reveal, StaggerGroup, staggerItem } from "./ui/Reveal";
+import Icon, { type IconName } from "./ui/Icon";
 
 export default function Integrations() {
   return (
-    <section className="relative py-24 overflow-hidden">
-      {/* Fond sombre */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-[#1a2e10] to-gray-900" />
-      {/* Lueur verte centrale */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#8DC63F]/10 rounded-full blur-3xl" />
-      {/* Grid subtile */}
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(141,198,63,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(141,198,63,0.15) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-xs font-semibold text-[#8DC63F] uppercase tracking-widest mb-5">
-            Intégrations
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 max-w-2xl mx-auto leading-tight">
-            Cockpit s&apos;intègre avec{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #8DC63F 0%, #b5e06a 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              vos outils existants
-            </span>
+    <section id="integrations" className="bg-gray-50/70 py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#8DC63F]">{integrations.eyebrow}</p>
+          <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
+            {integrations.headline} <span className="gradient-text">{integrations.highlight}</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
-            Cockpit est pensé comme une solution ouverte. Nous nous connectons aux logiciels métier et CRM que vous utilisez déjà.
-          </p>
-        </motion.div>
+          <p className="mt-5 text-lg leading-relaxed text-gray-500">{integrations.subheadline}</p>
+        </Reveal>
 
-        {/* Logos */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="grid grid-cols-6 gap-4 mt-14"
-        >
-          {integrations.map((integration, i) => (
+        {/* Logos intégrations */}
+        <StaggerGroup className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {integrations.logos.map((logo) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.85 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.07 * i }}
-              className="flex flex-col items-center gap-3 px-4 py-5 rounded-2xl border border-white/10 bg-white/90 backdrop-blur-sm hover:bg-white hover:border-[#8DC63F]/40 hover:shadow-lg hover:shadow-[#8DC63F]/10 transition-all duration-200 group"
+              key={logo.name}
+              variants={staggerItem}
+              whileHover={{ y: -4 }}
+              className="flex items-center justify-center rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
             >
-              <div className="relative w-24 h-14 group-hover:scale-105 transition-transform duration-200">
-                <Image
-                  src={integration.logo}
-                  alt={integration.name}
-                  fill
-                  className="object-contain"
-                  sizes="96px"
-                />
+              <div className="relative h-10 w-full opacity-70 grayscale transition group-hover:grayscale-0">
+                <Image src={logo.src} alt={logo.name} fill className="object-contain" sizes="120px" />
               </div>
-              <span className="text-xs text-gray-500 group-hover:text-gray-700 transition-colors duration-200 font-medium">
-                {integration.name}
-              </span>
             </motion.div>
           ))}
-        </motion.div>
+        </StaggerGroup>
+        <Reveal className="mt-5 text-center">
+          <p className="text-sm text-gray-400">{integrations.note}</p>
+        </Reveal>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 text-xs text-gray-500"
-        >
-          Et bien d&apos;autres — contactez-nous pour toute intégration spécifique.
-        </motion.p>
+        {/* Certifications */}
+        <Reveal className="mt-16">
+          <div id="confiance" className="grid gap-5 md:grid-cols-3">
+            {integrations.certifications.map((c) => (
+              <div key={c.name} className="flex items-start gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#8DC63F]/12 text-[#5a8a1f]">
+                  <Icon name={c.icon as IconName} className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="font-display text-base font-bold text-gray-900">{c.name}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-gray-500">{c.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

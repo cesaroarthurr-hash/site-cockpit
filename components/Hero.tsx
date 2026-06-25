@@ -105,8 +105,10 @@ export default function Hero() {
           <div className="absolute inset-0 -z-10 scale-110 rounded-[3rem] bg-gradient-to-tr from-[#8DC63F]/30 to-[#3B82F6]/20 blur-3xl" />
 
           {/* Téléphone */}
-          <div className="relative mx-auto w-[300px] rounded-[2.5rem] border-[10px] border-night bg-night p-1 shadow-2xl shadow-gray-900/30">
-            <div className="overflow-hidden rounded-[2rem] bg-white">
+          <div className="relative mx-auto w-[252px] rounded-[2.75rem] border-[9px] border-night bg-night p-1 shadow-2xl shadow-gray-900/30">
+            {/* encoche */}
+            <div className="absolute left-1/2 top-[9px] z-20 h-5 w-24 -translate-x-1/2 rounded-b-2xl bg-night" />
+            <div className="overflow-hidden rounded-[2.1rem] bg-white">
               {/* status bar */}
               <div className="flex items-center justify-between px-5 pt-3 text-[11px] font-medium text-gray-700">
                 <span>10:24</span>

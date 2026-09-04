@@ -10,7 +10,7 @@ export const siteConfig = {
   tagline: "La plateforme qui coordonne l'aide à domicile",
   description:
     "Cockpit remplace le carnet de liaison papier et coordonne auxiliaires, responsables de secteur, familles et intervenants libéraux autour du bénéficiaire — comptes rendus vocaux IA, pilotage temps réel, planning, bien-être. Certifié HDS, conforme RGPD, souverain.",
-  url: "https://cockpit.sahanest.fr",
+  url: "https://cockpit-care.com",
   ogImage: "/og-image.png",
   twitter: "@sahanest",
 };

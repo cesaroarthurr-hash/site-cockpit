@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
           </table>
 
           <div style="margin-top: 24px; padding: 16px; background: #f9fafb; border-radius: 8px; font-size: 12px; color: #999;">
-            Envoyé depuis le formulaire de candidature de cockpit.sahanest.fr
+            Envoyé depuis le formulaire de candidature de cockpit-care.com
           </div>
         </div>
       `,

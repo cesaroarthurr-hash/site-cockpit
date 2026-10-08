@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustedBy from "@/components/TrustedBy";
+import VideoSection from "@/components/VideoSection";
 import Problem from "@/components/Problem";
 import SolutionHub from "@/components/SolutionHub";
 import AppShowcase from "@/components/AppShowcase";
@@ -19,6 +20,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <TrustedBy />
+      <VideoSection />
       <Problem />
       <SolutionHub />
       {/* Capter : d'où vient l'information */}

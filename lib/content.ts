@@ -98,9 +98,29 @@ export const hero = {
     { label: "Actif en 2 heures", sub: "Aucune migration" },
     { label: "Souverain", sub: "Hébergé en France" },
   ],
+};
+
+// ─── VIDÉO DE PRÉSENTATION ───────────────────────────────────
+// Pour mettre la vraie vidéo en ligne : renseigner "src" ci-dessous.
+//   · YouTube  → https://www.youtube.com/watch?v=XXXX  (ou https://youtu.be/XXXX)
+//   · Vimeo    → https://vimeo.com/123456789
+//   · Fichier  → /videos/presentation.mp4  (déposé dans le dossier public/)
+// Tant que "src" est vide, l'emplacement réservé reste affiché.
+export const video = {
+  eyebrow: "EN DEUX MINUTES",
+  headline: "Cockpit expliqué",
+  highlight: "en deux minutes.",
+  subheadline:
+    "De l'appel du matin et du salon du bénéficiaire jusqu'à votre dossier d'évaluation.",
+  src: "",
+  poster: "",
+  // Tant que "src" est vide, la section reste visible en local (pour voir la mise
+  // en page) mais masquée sur le site en ligne, afin qu'aucun visiteur ne tombe
+  // sur un encadré vide. Passer à true pour l'afficher malgré tout.
+  showPlaceholderOnline: false,
   media: {
     label: "Vidéo de présentation Cockpit",
-    hint: "Emplacement vidéo — à intégrer",
+    hint: "Disponible prochainement",
   },
 };
 

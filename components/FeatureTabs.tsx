@@ -14,7 +14,7 @@ export default function FeatureTabs() {
   const tab = featureTabs.tabs[active];
 
   return (
-    <section id="fonctionnalites" className="relative overflow-hidden bg-night py-24 text-white">
+    <section id="capacites" className="relative overflow-hidden bg-night py-24 text-white">
       {/* fond */}
       <div className="absolute inset-0 bg-night-grid bg-grid opacity-60" />
       <div className="absolute left-1/2 top-0 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-[#8DC63F]/10 blur-3xl" />

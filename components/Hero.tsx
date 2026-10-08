@@ -184,8 +184,8 @@ export default function Hero() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -left-4 bottom-20 w-40 rounded-2xl border border-gray-100 bg-white p-3 shadow-xl shadow-gray-900/10 sm:-left-12"
           >
-            <p className="font-display text-2xl font-extrabold text-[#8DC63F]">16h</p>
-            <p className="text-[10px] leading-tight text-gray-500">économisées / mois / auxiliaire</p>
+            <p className="font-display text-2xl font-extrabold text-[#8DC63F]">&lt; 1 min</p>
+            <p className="text-[10px] leading-tight text-gray-500">par compte rendu, au domicile</p>
           </motion.div>
         </motion.div>
       </div>

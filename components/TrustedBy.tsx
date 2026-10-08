@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { trustedBy } from "@/lib/content";
 import { Reveal } from "./ui/Reveal";
-import AnimatedCounter from "./ui/AnimatedCounter";
 
 export default function TrustedBy() {
   const logos = [...trustedBy.logos, ...trustedBy.logos];
@@ -30,19 +29,6 @@ export default function TrustedBy() {
           </div>
         </div>
 
-        {/* Stats */}
-        <Reveal>
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-gray-100 lg:grid-cols-4">
-            {trustedBy.stats.map((s) => (
-              <div key={s.label} className="bg-white px-6 py-7 text-center">
-                <p className="font-display text-3xl font-extrabold text-[#8DC63F] sm:text-4xl">
-                  <AnimatedCounter value={s.value} suffix={s.suffix} />
-                </p>
-                <p className="mt-1.5 text-xs leading-snug text-gray-500">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );

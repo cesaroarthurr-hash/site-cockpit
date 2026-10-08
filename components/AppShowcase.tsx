@@ -9,24 +9,32 @@ import VoiceWaveform from "./ui/VoiceWaveform";
 import PhoneFrame from "./ui/PhoneFrame";
 
 const iconFor: Record<string, IconName> = {
-  aux: "mic",
-  manager: "grid",
+  connexion: "grid",
+  vocal: "mic",
   famille: "family",
-  pro: "stethoscope",
+  analyse: "sparkles",
 };
 
 const DEEP: Record<string, string> = {
-  aux: "#3f6f10",
-  manager: "#1d5fd6",
+  connexion: "#1d5fd6",
+  vocal: "#3f6f10",
   famille: "#6a36d1",
-  pro: "#bf7008",
+  analyse: "#bf7008",
 };
 
 const SLIDER: Record<string, string> = {
-  aux: "Glisser pour envoyer au manager",
-  manager: "Glisser pour diffuser au terrain",
+  connexion: "Glisser pour connecter un canal",
+  vocal: "Glisser pour envoyer le compte rendu",
   famille: "Glisser pour partager à la famille",
-  pro: "Glisser pour inviter un intervenant",
+  analyse: "Glisser pour envoyer le bilan",
+};
+
+// id de l'item → clé des maps ci-dessus
+const KEY_FOR_ID: Record<string, string> = {
+  connexion: "connexion",
+  "cr-vocal": "vocal",
+  famille: "famille",
+  analyse: "analyse",
 };
 
 const AUTOPLAY_MS = 10000;
@@ -42,12 +50,12 @@ function PhoneScreen({ id, color }: { id: string; color: string }) {
 
       <div className="mt-2 flex items-center gap-1.5 border-b border-gray-100 pb-2">
         <span className="flex h-4 w-4 items-center justify-center rounded-md" style={{ backgroundColor: color }}>
-          <Icon name={iconFor[id === "auxiliaire" ? "aux" : id === "pros" ? "pro" : id]} className="h-2.5 w-2.5 text-white" />
+          <Icon name={iconFor[KEY_FOR_ID[id] ?? "connexion"]} className="h-2.5 w-2.5 text-white" />
         </span>
         <span className="text-[10px] font-bold text-gray-800">Cockpit</span>
       </div>
 
-      {id === "auxiliaire" && (
+      {id === "cr-vocal" && (
         <div className="mt-3 flex flex-1 flex-col">
           <div className="flex items-center gap-2">
             <span className="flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-bold text-white" style={{ backgroundColor: color }}>M</span>
@@ -73,11 +81,11 @@ function PhoneScreen({ id, color }: { id: string; color: string }) {
         </div>
       )}
 
-      {id === "manager" && (
+      {id === "analyse" && (
         <div className="mt-3 space-y-2">
-          <p className="text-[8px] font-semibold uppercase tracking-wide text-gray-400">Tableau de bord</p>
+          <p className="text-[8px] font-semibold uppercase tracking-wide text-gray-400">Bilan de la semaine</p>
           <div className="grid grid-cols-2 gap-1.5">
-            {[{ v: "7", l: "Points d’attention" }, { v: "11", l: "Bénéficiaires" }].map((t) => (
+            {[{ v: "2", l: "Points d’attention" }, { v: "12", l: "Bénéficiaires" }].map((t) => (
               <div key={t.l} className="rounded-lg bg-gray-50 p-2">
                 <p className="font-display text-base font-extrabold" style={{ color }}>{t.v}</p>
                 <p className="text-[7px] leading-tight text-gray-400">{t.l}</p>
@@ -104,13 +112,13 @@ function PhoneScreen({ id, color }: { id: string; color: string }) {
         </div>
       )}
 
-      {id === "pros" && (
+      {id === "connexion" && (
         <div className="mt-3 space-y-1.5">
-          <p className="text-[8px] font-semibold uppercase tracking-wide text-gray-400">Cercle de soin · Marianne</p>
+          <p className="text-[8px] font-semibold uppercase tracking-wide text-gray-400">Canaux connectés</p>
           {[
-            { n: "Cabinet IDEL Pasteur", s: "ACTIF" },
-            { n: "Dr. Lemaitre", s: "ACTIF" },
-            { n: "Sophie Vidal — Kiné", s: "ATTENTE" },
+            { n: "Boîte mail", s: "CONNECTÉ" },
+            { n: "Téléphonie", s: "CONNECTÉ" },
+            { n: "QR codes", s: "DÉPOSÉS" },
           ].map((p) => (
             <div key={p.n} className="flex items-center justify-between rounded-lg bg-gray-50 px-2 py-1.5">
               <span className="text-[9px] font-medium text-gray-700">{p.n}</span>

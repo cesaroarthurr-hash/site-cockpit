@@ -6,12 +6,13 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Notre histoire",
   description:
-    "L'histoire de Cockpit et de SAHANEST : notre mission pour faciliter l'aide à domicile.",
+    "L'histoire de Cockpit et de SAHANEST : notre mission pour tracer chaque échange de l'aide à domicile.",
 };
 
 const values = [
   { title: "Le terrain d'abord", desc: "Chaque fonctionnalité est co-construite avec les auxiliaires et les responsables de secteur qui l'utilisent au quotidien." },
-  { title: "Du temps rendu au soin", desc: "Notre obsession : retirer la paperasse pour rendre du temps humain à ceux qui accompagnent." },
+  { title: "S'adapter à l'existant", desc: "Nous ne demandons à personne de changer d'outil ni d'habitude. Cockpit se branche sur ce qui fonctionne déjà et capte ce qui échappait." },
+  { title: "Prouver ce qui est fait", desc: "La qualité de votre accompagnement est réelle. Notre travail consiste à la rendre démontrable, au fil de l'eau plutôt que dans l'urgence." },
   { title: "Souveraineté & confiance", desc: "Données de santé hébergées en France, certifiées HDS et conformes RGPD. La confiance n'est pas une option." },
 ];
 
@@ -38,9 +39,10 @@ export default function NotreHistoirePage() {
             Faciliter l’aide à domicile, <span className="gradient-text">tout simplement.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-gray-500">
-            Cockpit est né d’un constat simple : ceux qui prennent soin des autres méritent
-            des outils à la hauteur de leur travail. Cette page sera bientôt enrichie de notre
-            parcours, notre équipe et notre vision.
+            Cockpit est né d’un constat simple : les structures d’aide à domicile accompagnent
+            bien, mais ne peuvent pas le prouver. L’information se disperse entre les appels,
+            les mails et le domicile. Nous la rassemblons. Cette page sera bientôt enrichie de
+            notre parcours, notre équipe et notre vision.
           </p>
         </div>
       </section>
@@ -48,7 +50,7 @@ export default function NotreHistoirePage() {
       {/* Valeurs */}
       <section className="bg-gray-50/70 py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
               <div key={v.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
                 <h3 className="font-display text-lg font-bold text-gray-900">{v.title}</h3>

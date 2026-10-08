@@ -7,32 +7,52 @@ const faqs = [
   {
     question: "Dois-je changer de logiciel de gestion pour utiliser Cockpit ?",
     answer:
-      "Non. Cockpit ne remplace pas votre logiciel de planning ou de facturation. Il vient en complément : vos auxiliaires transmettent leurs comptes rendus via l'application mobile, et vos managers ont une vue temps réel sur l'activité. Cockpit se connecte à vos outils existants (Ximi, Ogust, Arche, Apologic...) via notre API.",
+      "Non, et c'est le principe même de Cockpit. Vos plannings, votre facturation et votre télégestion restent exactement là où ils sont. Cockpit se branche sur vos outils existants (Ximi, Ogust, Arche, Apologic...) via notre API et vient capter ce qu'ils ne voient pas : les appels, les mails, les SMS et ce qui se dit au domicile.",
   },
   {
-    question: "Puis-je garder mon logiciel de gestion et utiliser Cockpit uniquement pour les comptes rendus ?",
+    question: "Comment Cockpit récupère-t-il nos appels et nos e-mails ?",
     answer:
-      "Oui, c'est même le cas d'usage principal. Cockpit se positionne comme le cahier de liaison digital de votre structure : vos auxiliaires l'utilisent pour leurs transmissions quotidiennes, et vous conservez votre outil de planification habituel. Les deux cohabitent parfaitement.",
+      "Par connexion API à votre messagerie (Outlook, Gmail) et à votre centrale téléphonique (Aircall, Ringover). Les e-mails reçus et envoyés, le journal d'appels, le résumé de chaque conversation et les SMS échangés sont rattachés automatiquement au bon bénéficiaire. Personne n'a à transférer ni à recopier quoi que ce soit.",
   },
   {
-    question: "Combien de temps faut-il pour déployer Cockpit dans ma structure ?",
+    question: "Mes auxiliaires sont peu à l'aise avec le numérique. Comment font-elles ?",
     answer:
-      "Le déploiement se fait en moins d'une semaine. Nous accompagnons votre équipe lors d'une session de formation d'une demi-journée, nous paramétrons les accès, et vos auxiliaires sont opérationnels dès le lendemain. Aucune compétence technique requise.",
+      "Elles n'ont aucune application à installer ni compte à créer. Un QR code est déposé au domicile du bénéficiaire : l'intervenante le scanne avec son téléphone, raconte sa visite à voix haute dans ses propres mots, et c'est terminé. L'IA rédige le compte rendu et le range dans la fiche. Moins d'une minute, aucun formulaire à remplir.",
   },
   {
-    question: "Mes auxiliaires sont peu à l'aise avec le numérique. Cockpit est-il adapté ?",
+    question: "Les infirmiers, kinés et médecins peuvent-ils l'utiliser aussi ?",
     answer:
-      "C'est notre priorité. L'application auxiliaire est conçue pour être utilisée en moins de 60 secondes par intervention : l'auxiliaire dicte son compte rendu à l'oral, et Cockpit s'occupe du reste. Pas de formulaires complexes, pas de saisie longue. Nous avons conçu l'outil en collaboration avec des auxiliaires de terrain.",
+      "Oui, et c'est tout l'intérêt. Le QR code posé au domicile est accessible à tous les intervenants, quel que soit leur métier et leur employeur. Chacun peut laisser son compte rendu sans créer de compte. C'est ce qui permet de reconstituer un parcours complet plutôt que la seule partie aide à domicile.",
+  },
+  {
+    question: "Combien de temps faut-il pour déployer Cockpit ?",
+    answer:
+      "Deux heures à peine. Vous nous transmettez une fiche de cadrage (agence, équipes, bénéficiaires suivis, outils utilisés), nous nous branchons sur votre boîte mail, vos messageries et votre téléphonie, puis nous déposons les QR codes. Vos équipes peuvent scanner immédiatement. Il n'y a ni migration de données, ni période de double saisie.",
+  },
+  {
+    question: "En quoi Cockpit aide-t-il pour l'évaluation HAS ?",
+    answer:
+      "Chaque élément capté est rattaché, au moment où il se produit, au chapitre du référentiel HAS qu'il documente : un compte rendu signalant des vertiges alimente l'accompagnement à la santé, un appel d'un proche l'expression et la participation de l'entourage, un plan d'action ouvert puis clos la démarche qualité. Le jour de l'évaluation, les preuves sont déjà classées — vous ne les reconstituez pas, vous les consultez.",
+  },
+  {
+    question: "Cockpit génère-t-il nos évaluations et nos plans d'accompagnement ?",
+    answer:
+      "Les évaluations conformes aux recommandations de la HAS et les plans d'accompagnement personnalisés (PAP) sont pré-rédigés à partir des échanges déjà captés, sans double saisie. Votre équipe relit et valide : rien n'est publié sans l'accord d'un responsable. Il en va de même pour les réclamations, qui sont détectées dans les appels et les mails puis qualifiées selon une grille de gravité.",
+  },
+  {
+    question: "Que voient exactement les familles ?",
+    answer:
+      "Après chaque intervention, les proches reçoivent les nouvelles en temps réel et peuvent écouter un résumé audio des dernières visites. Ils réagissent directement dans le fil, qui reste tracé. Ils accèdent aussi à des ressources de leur territoire : lieux de vie, solutions et événements. Vous gardez la main sur ce qui leur est partagé.",
   },
   {
     question: "Cockpit est-il conforme aux exigences de sécurité des données de santé ?",
     answer:
-      "Oui. Cockpit est hébergé sur une infrastructure certifiée HDS (Hébergeur de Données de Santé), conforme au RGPD, avec des données hébergées exclusivement en France. Cockpit est également en cours de référencement Ségur du Numérique en Santé.",
+      "Oui. Cockpit est hébergé sur une infrastructure certifiée HDS (Hébergeur de Données de Santé), conforme au RGPD, avec des données hébergées exclusivement en France. L'accès est limité par bénéficiaire et la consultation est tracée. Cockpit est également en cours de référencement Ségur du Numérique en Santé.",
   },
   {
     question: "Quel est le modèle tarifaire de Cockpit ?",
     answer:
-      "Cockpit fonctionne sur abonnement mensuel, sans engagement longue durée. Le tarif est calculé en fonction du nombre d'utilisateurs actifs (auxiliaires + managers). Nous proposons une période d'essai gratuite de 30 jours pour tester la solution sans risque. Contactez-nous pour un devis personnalisé.",
+      "Cockpit fonctionne sur abonnement mensuel, sans engagement longue durée. Le tarif dépend du périmètre déployé et du nombre d'utilisateurs actifs. Contactez-nous pour un devis adapté à votre structure.",
   },
 ];
 

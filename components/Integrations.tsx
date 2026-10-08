@@ -18,8 +18,38 @@ export default function Integrations() {
           <p className="mt-5 text-lg leading-relaxed text-gray-500">{integrations.subheadline}</p>
         </Reveal>
 
-        {/* Logos intégrations */}
-        <StaggerGroup className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        {/* Canaux connectés */}
+        <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2">
+          {integrations.channels.map((c) => (
+            <motion.div
+              key={c.title}
+              variants={staggerItem}
+              className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#8DC63F]">
+                {c.title}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {c.items.map((i) => (
+                  <span
+                    key={i}
+                    className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-sm font-medium text-gray-700"
+                  >
+                    {i}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </StaggerGroup>
+
+        {/* Logos logiciels métier */}
+        <Reveal className="mt-10 text-center">
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            Logiciels métier &amp; CRM
+          </p>
+        </Reveal>
+        <StaggerGroup className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {integrations.logos.map((logo) => (
             <motion.div
               key={logo.name}

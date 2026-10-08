@@ -5,11 +5,10 @@ import Problem from "@/components/Problem";
 import SolutionHub from "@/components/SolutionHub";
 import FeatureTabs from "@/components/FeatureTabs";
 import AppShowcase from "@/components/AppShowcase";
-import Results from "@/components/Results";
+import Compliance from "@/components/Compliance";
 import Modules from "@/components/Modules";
 import Onboarding from "@/components/Onboarding";
 import Integrations from "@/components/Integrations";
-import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -23,11 +22,10 @@ export default function Home() {
       <SolutionHub />
       <FeatureTabs />
       <AppShowcase />
-      <Results />
+      <Compliance />
       <Modules />
       <Onboarding />
       <Integrations />
-      <Testimonials />
       <FinalCTA />
       <Footer />
     </main>

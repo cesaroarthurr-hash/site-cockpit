@@ -4,7 +4,7 @@ import { Resend } from "resend";
 // Initialise Resend avec la clé depuis les variables d'environnement
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Adresses qui recevront les candidatures (séparées par une virgule dans la variable d'env)
+// Adresses qui recevront les demandes de démonstration (séparées par une virgule dans la variable d'env)
 const TO_EMAILS = (process.env.CONTACT_TO_EMAIL ?? "contact@sahanest.fr")
   .split(",")
   .map((e) => e.trim())
@@ -28,11 +28,11 @@ export async function POST(req: NextRequest) {
       from: FROM_EMAIL,
       to: TO_EMAILS,
       replyTo: email,
-      subject: `[Cockpit] Nouvelle candidature pilote — ${structure}`,
+      subject: `[Cockpit] Demande de démonstration — ${structure}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
           <div style="background: #8DC63F; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
-            <h1 style="color: white; margin: 0; font-size: 20px;">Nouvelle candidature pilote</h1>
+            <h1 style="color: white; margin: 0; font-size: 20px;">Nouvelle demande de démonstration</h1>
             <p style="color: rgba(255,255,255,0.8); margin: 8px 0 0; font-size: 14px;">Cockpit</p>
           </div>
 
@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
           </table>
 
           <div style="margin-top: 24px; padding: 16px; background: #f9fafb; border-radius: 8px; font-size: 12px; color: #999;">
-            Envoyé depuis le formulaire de candidature de cockpit-care.com
+            Envoyé depuis le formulaire de demande de démonstration de cockpit-care.com
           </div>
         </div>
       `,

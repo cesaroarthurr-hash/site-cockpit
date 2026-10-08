@@ -41,21 +41,6 @@ export default function Problem() {
           ))}
         </StaggerGroup>
 
-        {/* Conséquences */}
-        <Reveal className="mt-10">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-400">
-            <Icon name="arrow" className="h-4 w-4 rotate-90" />
-            {problem.consequencesLabel}
-          </div>
-          <div className="mt-5 grid gap-5 sm:grid-cols-3">
-            {problem.consequences.map((c) => (
-              <div key={c.title} className="rounded-2xl border-l-4 border-[#8DC63F] bg-white px-6 py-5 shadow-sm">
-                <p className="font-display text-base font-bold leading-snug text-gray-900">{c.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-gray-500">{c.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );

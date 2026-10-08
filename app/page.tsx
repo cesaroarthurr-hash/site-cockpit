@@ -3,9 +3,10 @@ import Hero from "@/components/Hero";
 import TrustedBy from "@/components/TrustedBy";
 import Problem from "@/components/Problem";
 import SolutionHub from "@/components/SolutionHub";
-import FeatureTabs from "@/components/FeatureTabs";
 import AppShowcase from "@/components/AppShowcase";
+import FeatureTabs from "@/components/FeatureTabs";
 import Compliance from "@/components/Compliance";
+import Comparison from "@/components/Comparison";
 import Modules from "@/components/Modules";
 import Onboarding from "@/components/Onboarding";
 import Integrations from "@/components/Integrations";
@@ -20,9 +21,13 @@ export default function Home() {
       <TrustedBy />
       <Problem />
       <SolutionHub />
-      <FeatureTabs />
+      {/* Capter : d'où vient l'information */}
       <AppShowcase />
+      {/* Exploiter : ce que vous en faites */}
+      <FeatureTabs />
+      {/* Prouver */}
       <Compliance />
+      <Comparison />
       <Modules />
       <Onboarding />
       <Integrations />
